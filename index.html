@@ -4,104 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Business Card</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 flex justify-center items-center min-h-screen p-4">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center py-8 px-4">
 
-    <div id="card-container" class="bg-white w-full max-w-md p-6 rounded-3xl shadow-2xl text-center relative overflow-hidden">
-        <div class="animate-pulse flex flex-col items-center py-12">
-            <div class="rounded-full bg-slate-200 h-28 w-28 mb-4"></div>
-            <div class="h-6 bg-slate-200 rounded w-3/4 mb-2"></div>
-            <div class="h-4 bg-slate-200 rounded w-1/2"></div>
-        </div>
+    <div id="card-container" class="w-full max-w-md space-y-6">
+        <!-- Dynamically injected user card content goes here -->
+        <div class="text-center py-20 text-slate-400">Loading digital card...</div>
     </div>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('user') || 'david';
+        async function loadCard() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('user') || 'david';
 
-        fetch('users.json')
-            .then(response => response.json())
-            .then(database => {
-                const data = database[username];
+            try {
+                const response = await fetch('users.json');
+                const users = await response.json();
+                const user = users[username];
+
                 const container = document.getElementById('card-container');
 
-                if (!data) {
-                    container.innerHTML = `
-                        <div class="py-12">
-                            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-4xl mb-3"></i>
-                            <h2 class="text-xl font-bold text-slate-800">Card Not Found</h2>
-                            <p class="text-slate-500 text-sm mt-1">This digital profile does not exist.</p>
-                        </div>`;
+                if (!user) {
+                    container.innerHTML = `<div class="text-center py-20 text-red-400 font-semibold">Profile not found.</div>`;
                     return;
                 }
 
-                let portfolioHtml = '';
-                if (data.portfolioImages && data.portfolioImages.length > 0) {
-                    data.portfolioImages.forEach(img => {
-                        portfolioHtml += `
-                            <div class="overflow-hidden rounded-xl shadow-sm border border-slate-100 aspect-square">
-                                <img src="${img}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                            </div>`;
+                // Set Page Title
+                document.title = `${user.name} — Digital Card`;
+
+                // Build HTML Structure dynamically
+                let html = `
+                    <!-- Header Profile Section -->
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center shadow-xl backdrop-blur-md">
+                        <div class="relative w-28 h-28 mx-auto mb-4">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 animate-pulse opacity-75"></div>
+                            <img src="${user.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb'}" alt="${user.name}" class="relative w-full h-full object-cover rounded-full border-2 border-slate-700">
+                        </div>
+                        <h1 class="text-2xl font-bold tracking-tight">${user.name} <i class="fa-solid fa-circle-check text-blue-400 text-lg"></i></h1>
+                        <p class="text-blue-400 font-medium text-sm mt-1">${user.title} ${user.company ? '• ' + user.company : ''}</p>
+                        <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${user.location}</p>
+                        <p class="text-slate-300 text-sm mt-3 leading-relaxed">${user.tagline}</p>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-4 gap-2 mt-6">
+                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
+                                <i class="fa-solid fa-phone text-blue-400 text-base mb-1"></i> Call
+                            </a>
+                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
+                                <i class="fa-brands fa-whatsapp text-green-400 text-base mb-1"></i> WhatsApp
+                            </a>
+                            <a href="mailto:${user.email}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
+                                <i class="fa-solid fa-envelope text-indigo-400 text-base mb-1"></i> Email
+                            </a>
+                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
+                                <i class="fa-solid fa-map-location-dot text-amber-400 text-base mb-1"></i> Map
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                // Render Dynamic Sections (Universal loop)
+                if (user.sections && Array.isArray(user.sections)) {
+                    user.sections.forEach(sec => {
+                        html += `<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">`;
+                        html += `<h2 class="text-blue-400 font-bold tracking-wide text-sm"><i class="fa-solid fa-layer-group mr-2"></i>${sec.number} — ${sec.title}</h2>`;
+
+                        if (sec.type === 'about') {
+                            html += `<p class="text-slate-300 text-sm leading-relaxed">${sec.content}</p>`;
+                        } 
+                        else if (sec.type === 'expertise') {
+                            sec.groups.forEach(g => {
+                                html += `<div class="mt-3"><h3 class="text-slate-200 font-semibold text-xs uppercase tracking-wider mb-2">${g.category}</h3><ul class="space-y-1.5">`;
+                                g.items.forEach(item => {
+                                    html += `<li class="text-slate-400 text-sm flex items-center"><i class="fa-solid fa-circle text-blue-500 text-[6px] mr-2"></i>${item}</li>`;
+                                });
+                                html += `</ul></div>`;
+                            });
+                        } 
+                        else if (sec.type === 'projects') {
+                            sec.items.forEach(p => {
+                                html += `
+                                    <div class="bg-slate-950/50 border border-slate-800/80 rounded-xl overflow-hidden mt-3">
+                                        <img src="${p.image}" alt="${p.projectName}" class="w-full h-40 object-cover">
+                                        <div class="p-4 space-y-2">
+                                            <h3 class="font-bold text-slate-100 text-base">${p.projectName}</h3>
+                                            <p class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i>${p.location}</p>
+                                            <p class="text-xs text-slate-300"><strong class="text-slate-200">Role:</strong> ${p.role}</p>
+                                            <p class="text-xs text-slate-400"><strong class="text-slate-200">Impact:</strong> ${p.insight}</p>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                        }
+                        else if (sec.type === 'table') {
+                            html += `<p class="text-xs text-slate-400">${sec.description}</p>
+                                <div class="overflow-x-auto mt-2">
+                                    <table class="w-full text-left text-xs text-slate-300 border-collapse">
+                                        <thead>
+                                            <tr class="border-b border-slate-800 text-slate-400">`;
+                            sec.headers.forEach(h => html += `<th class="py-2 px-3 font-semibold">${h}</th>`);
+                            html += `</tr></thead><tbody>`;
+                            sec.rows.forEach(row => {
+                                html += `<tr class="border-b border-slate-800/50">`;
+                                row.forEach(cell => html += `<td class="py-2 px-3">${cell}</td>`);
+                                html += `</tr>`;
+                            });
+                            html += `</tbody></table></div>`;
+                        }
+
+                        html += `</div>`;
                     });
                 }
 
-                container.innerHTML = `
-                    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
-                    <div class="relative z-10 mt-10">
-                        <img src="${data.avatarUrl}" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-white shadow-lg">
-                    </div>
-                    <h1 class="text-2xl font-bold mt-3 text-slate-900">${data.fullName}</h1>
-                    <p class="text-blue-600 font-semibold text-sm mt-0.5">${data.jobTitle}</p>
-                    <p class="text-slate-400 text-xs font-medium uppercase tracking-wider">${data.company}</p>
-                    <p class="text-slate-600 text-sm mt-3 px-2 leading-relaxed">${data.bio}</p>
-
-                    <div class="grid grid-cols-2 gap-3 mt-6">
-                        <a href="tel:${data.phone}" class="flex items-center justify-center gap-2 bg-blue-50 text-blue-700 py-3 rounded-2xl font-semibold text-sm shadow-sm hover:bg-blue-100 transition">
-                            <i class="fa-solid fa-phone"></i> Call
-                        </a>
-                        <a href="https://wa.me/${data.whatsapp}" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-50 text-emerald-700 py-3 rounded-2xl font-semibold text-sm shadow-sm hover:bg-emerald-100 transition">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
-                        </a>
-                        <a href="mailto:${data.email}" class="flex items-center justify-center gap-2 bg-slate-100 text-slate-700 py-3 rounded-2xl font-semibold text-sm shadow-sm hover:bg-slate-200 transition">
-                            <i class="fa-solid fa-envelope"></i> Email
-                        </a>
-                        <a href="${data.mapLocation}" target="_blank" class="flex items-center justify-center gap-2 bg-amber-50 text-amber-700 py-3 rounded-2xl font-semibold text-sm shadow-sm hover:bg-amber-100 transition">
-                            <i class="fa-solid fa-location-dot"></i> Location
-                        </a>
+                // Fixed Footer Action Buttons (Download Portfolio & Save Contact)
+                html += `
+                    <div class="space-y-3 pt-2 pb-6">
+                        ${user.portfolioPdf ? `
+                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm">
+                                <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
+                            </a>
+                        ` : ''}
+                        
+                        <button onclick="downloadVCard('${username}')" class="w-full flex items-center justify-center bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm">
+                            <i class="fa-solid fa-address-book mr-2 text-blue-400 text-base"></i> Save Contact to Phonebook
+                        </button>
                     </div>
 
-                    <button onclick="downloadVCard('${data.fullName}', '${data.phone}', '${data.email}', '${data.company}')" class="w-full mt-3 bg-blue-600 text-white py-3.5 rounded-2xl font-bold text-sm shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-user-plus"></i> Save Contact to Phone
-                    </button>
-
-                    <div class="mt-8 text-left">
-                        <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wider mb-3 flex items-center gap-2">
-                            <i class="fa-solid fa-briefcase text-blue-600"></i> Featured Portfolio
-                        </h3>
-                        <div class="grid grid-cols-3 gap-2">
-                            ${portfolioHtml}
-                        </div>
-                    </div>
-
-                    <div class="mt-8 pt-4 border-t border-slate-100 text-center">
-                        <p class="text-[11px] text-slate-400 font-medium">Powered by <span class="font-bold text-slate-600">Digital Cards</span></p>
+                    <div class="text-center text-xs text-slate-500 pb-4">
+                        Powered by Fortumore Digital Cards
                     </div>
                 `;
-            });
 
-        function downloadVCard(name, phone, email, company) {
-            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nORG:${company}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`;
-            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8' });
+                container.innerHTML = html;
+
+            } catch (err) {
+                console.error("Error loading card data:", err);
+            }
+        }
+
+        // vCard Generation Function
+        async function downloadVCard(username) {
+            const res = await fetch('users.json');
+            const users = await res.json();
+            const u = users[username];
+
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${u.name}
+TITLE:${u.title}
+ORG:${u.company || ''}
+TEL;TYPE=WORK,VOICE:${u.phone}
+EMAIL:${u.email}
+NOTE:${u.tagline}
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `${name.replace(/\s+/g, '_')}.vcf`;
+            a.download = `${u.name.replace(/\s+/g, '_')}.vcf`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
         }
+
+        loadCard();
     </script>
 </body>
 </html>
