@@ -55,14 +55,14 @@
         {
           "projectName": "Residential & Commercial Solar",
           "location": "Nigeria",
-          "image": "https://images.unsplash.com/photo-1509391365360-1e92d6e0b727",
+          "image": "images/lewhanz1.jpeg",
           "role": "EPC Contractor",
           "insight": "Delivering reliable solar and battery systems designed for high-energy residential and commercial facilities."
         },
         {
           "projectName": "Hybrid & Industrial Power Systems",
           "location": "Nigeria",
-          "image": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9",
+          "image": "images/lewhanz2.jpeg",
           "role": "Lead Energy Strategist",
           "insight": "Integrating solar, battery, grid, and generator networks for industrial and institutional clients."
         }
