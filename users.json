@@ -1,84 +1,24 @@
 {
   "david": {
     "name": "Dr. David Adebayo",
-    "title": "Managing Director & CTO",
+    "title": "Managing Director & CTO • Nexus Technologies Ltd",
     "company": "Nexus Technologies Ltd",
     "location": "Abuja, Nigeria",
     "tagline": "Building high-performance cloud architectures, fintech APIs, and automated business workflows.",
     "phone": "+2348000000000",
     "whatsapp": "2348000000000",
-    "email": "david@example.com",
+    "email": "david@nexus.example",
     "mapUrl": "https://maps.google.com",
-    "portfolioPdf": "https://example.com/david-portfolio.pdf",
-    
     "sections": [
       {
         "type": "about",
         "number": "01",
         "title": "About Me",
-        "content": "Dr. David Adebayo is an enterprise technology leader specializing in scalable cloud platforms and digital transformation across Africa. A resource person in Building high-performance cloud architectures, fintech APIs, and automated business workflows across Africa with over 10 years of experience."
-      },
-      {
-        "type": "expertise",
-        "number": "02",
-        "title": "Areas of Expertise",
-        "groups": [
-          {
-            "category": "Cloud & Infrastructure",
-            "items": ["AWS & Azure Architecture", "High-Availability Systems"]
-          },
-          {
-            "category": "Software Engineering",
-            "items": ["Fintech APIs", "Automated Workflows"]
-          }
-        ]
-      },
-      {
-        "type": "projects",
-        "number": "03",
-        "title": "Selected Projects",
-        "items": [
-          {
-            "projectName": "Pan-African Payment Gateway",
-            "location": "Lagos & Nairobi",
-            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-            "role": "Lead Architect → API Design → Security Compliance",
-            "insight": "Processed over $10M in monthly transactions with 99.99% uptime."
-          }
-        ]
-      },
-      {
-        "type": "table",
-        "number": "04",
-        "title": "Key Metrics & Impact",
-        "description": "Measurable results delivered across enterprise deployments:",
-        "headers": ["Metric", "Scope", "Impact"],
-        "rows": [
-          ["Uptime", "Core Banking", "99.99%"],
-          ["Latency", "API Gateway", "< 45ms"]
-        ]
-      },
-      {
-        "type": "valueProposition",
-        "number": "05",
-        "title": "What I Bring to Clients",
-        "subtitle": "Instead of simply writing code, I help you answer:",
-        "highlight": "\"Is this architecture actually secure, scalable, and built for growth?\"",
-        "frameworkTitle": "Evaluation Framework:",
-        "steps": [
-          "Discovery",
-          "Architecture Design",
-          "Security Review",
-          "Performance Testing",
-          "Deployment",
-          "Continuous Support"
-        ]
+        "content": "Building high-performance cloud architectures, fintech APIs, and automated business workflows across Africa with over 10 years of experience."
       }
     ]
-  }
-},
-
-"gabriel": {
+  },
+  "gabriel": {
     "name": "Gabriel Igbokwe",
     "title": "Automation Engineer & Tech Strategist",
     "company": "Fortumore Technologies",
@@ -95,7 +35,7 @@
         "type": "about",
         "number": "01",
         "title": "About Me",
-        "content": "Gabriel Igbokwe is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations. Designing high-efficiency operational systems, automated client onboarding workflows, and scalable digital tools tailored for modern businesses."
+        "content": "Gabriel Igbokwe is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
       },
       {
         "type": "table",
