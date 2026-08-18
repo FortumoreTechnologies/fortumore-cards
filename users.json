@@ -58,6 +58,22 @@
           ["Uptime", "Core Banking", "99.99%"],
           ["Latency", "API Gateway", "< 45ms"]
         ]
+      },
+      {
+        "type": "valueProposition",
+        "number": "05",
+        "title": "What I Bring to Clients",
+        "subtitle": "Instead of simply writing code, I help you answer:",
+        "highlight": "\"Is this architecture actually secure, scalable, and built for growth?\"",
+        "frameworkTitle": "Evaluation Framework:",
+        "steps": [
+          "Discovery",
+          "Architecture Design",
+          "Security Review",
+          "Performance Testing",
+          "Deployment",
+          "Continuous Support"
+        ]
       }
     ]
   }
