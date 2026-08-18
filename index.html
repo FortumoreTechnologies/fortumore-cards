@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Real Estate Portfolio & Digital Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(18, 24, 38, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .phone-container { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 18px; }
+
+        .profile-header { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .avatar-wrapper { width: 110px; height: 110px; border-radius: 50%; padding: 3px; background: var(--accent-gradient); margin-bottom: 14px; }
+        .avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid var(--bg-color); }
+        .profile-name { font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+        .profile-name i { color: #3b82f6; font-size: 18px; }
+        .profile-title { font-size: 14px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px; }
+        .location-badge { font-size: 12px; color: #3b82f6; background: rgba(59, 130, 246, 0.1); padding: 4px 12px; border-radius: 20px; font-weight: 600; margin-bottom: 8px; }
+        .tagline { font-size: 12px; color: var(--text-muted); line-height: 1.5; padding: 0 10px; }
+
+        .quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 5px; }
+        .quick-btn { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text-main); text-decoration: none; backdrop-filter: blur(10px); }
+        .quick-btn i { font-size: 18px; color: #3b82f6; }
+        .quick-btn span { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+
+        .content-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 18px; backdrop-filter: blur(10px); }
+        .section-title { font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        .section-title i { color: #3b82f6; font-size: 14px; }
+        .section-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+        .sub-heading { font-size: 13px; font-weight: 700; color: #3b82f6; margin-top: 10px; margin-bottom: 4px; }
+        .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .bullet-list li { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+        .bullet-list li i { font-size: 10px; color: #3b82f6; }
+
+        .project-card { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; margin-top: 10px; }
+        .project-card img { width: 100%; height: 160px; object-fit: cover; }
+        .project-info { padding: 12px; }
+        .project-info h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .project-info p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+        .market-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 11px; }
+        .market-table th, .market-table td { border: 1px solid var(--border-color); padding: 8px; text-align: left; }
+        .market-table th { background: rgba(59, 130, 246, 0.1); color: #fff; }
+        .market-table td { color: var(--text-muted); }
+
+        .tail-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
+        .cta-button { background: var(--accent-gradient); color: white; border: none; width: 100%; padding: 16px; border-radius: 14px; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; text-decoration: none; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3); }
+        .secondary-cta { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: white; box-shadow: none; }
+        .footer-branding { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+        #loading-state { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 15px; }
+    </style>
+</head>
+<body>
+
+    <div id="loading-state">
+        <i class="fa-solid fa-spinner fa-spin" style="font-size: 24px; color: #3b82f6; margin-bottom: 10px;"></i><br>
+        Loading digital portfolio...
+    </div>
+
+    <div class="phone-container" id="main-container" style="display: none;">
+        <!-- Header -->
+        <div class="profile-header">
+            <div class="avatar-wrapper">
+                <img id="p-avatar" src="" alt="Avatar">
+            </div>
+            <h1 class="profile-name"><span id="p-name"></span> <i class="fa-solid fa-circle-check"></i></h1>
+            <p class="profile-title" id="p-title"></p>
+            <div class="location-badge"><i class="fa-solid fa-location-dot"></i> <span id="p-location"></span></div>
+            <p class="tagline" id="p-tagline"></p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-actions">
+            <a id="link-phone" href="#" class="quick-btn"><i class="fa-solid fa-phone"></i><span>Call</span></a>
+            <a id="link-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="quick-btn"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+            <a id="link-email" href="#" class="quick-btn"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+            <a id="link-map" href="#" target="_blank" rel="noopener noreferrer" class="quick-btn"><i class="fa-solid fa-map-location-dot"></i><span>Map</span></a>
+        </div>
+
+        <!-- 01 — About Me -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-user-tie"></i> 01 — About Me</div>
+            <p class="section-text" id="p-about"></p>
+        </div>
+
+        <!-- 02 — Areas of Expertise -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-layer-group"></i> 02 — Areas of Expertise</div>
+            <div class="sub-heading">Land Acquisition</div>
+            <ul class="bullet-list">
+                <li><i class="fa-solid fa-circle"></i> Residential land & Commercial land</li>
+                <li><i class="fa-solid fa-circle"></i> Estate plots & Development opportunities</li>
+            </ul>
+            <div class="sub-heading" style="margin-top:12px;">Property Investment</div>
+            <ul class="bullet-list">
+                <li><i class="fa-solid fa-circle"></i> Land appreciation & Off-plan investments</li>
+                <li><i class="fa-solid fa-circle"></i> Income-generating properties & Sourcing</li>
+            </ul>
+            <div class="sub-heading" style="margin-top:12px;">Real Estate Intelligence</div>
+            <ul class="bullet-list">
+                <li><i class="fa-solid fa-circle"></i> Location analysis, pricing & market research</li>
+                <li><i class="fa-solid fa-circle"></i> ROI, appreciation & document verification</li>
+            </ul>
+        </div>
+
+        <!-- 03 — Selected Projects (Guzape) -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-briefcase"></i> 03 — Selected Projects</div>
+            <div class="project-card">
+                <img id="p-p1_img" src="" alt="Project 1">
+                <div class="project-info">
+                    <h4>Project: Guzape Land Acquisition</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Guzape 2, Abuja (500 sqm Residential)</p>
+                    <p style="color:#fff; font-size:11px; margin-top:4px;"><b>My Role:</b> Sourcing → Location analysis → Price assessment → Documentation review → Acquisition support.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 04 — Another Example (Kurudu) -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-city"></i> 04 — Another Example</div>
+            <div class="project-card">
+                <img id="p-p2_img" src="" alt="Project 2">
+                <div class="project-info">
+                    <h4>Project: Kurudu Investment Land</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Kurudu, Abuja (600 sqm Long-term)</p>
+                    <p style="color:#fff; font-size:11px; margin-top:4px;"><b>My Role:</b> Identified opportunity → Compared market prices → Evaluated growth trends → Presented investment case.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 05 — What I Bring to Clients -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-circle-question"></i> 05 — What I Bring to Clients</div>
+            <p class="section-text" style="margin-bottom:8px;">Instead of simply showing properties, I help you answer: <i>"Is this actually a good property to buy?"</i></p>
+            <div class="sub-heading">Evaluation Framework:</div>
+            <p class="section-text">Location → Documentation → Price → Development → Demand → Appreciation Potential → Exit Strategy</p>
+        </div>
+
+        <!-- 06 — Client Results -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-award"></i> 06 — Client Results</div>
+            <ul class="bullet-list">
+                <li><i class="fa-solid fa-check"></i> <b>Client A (Abuja):</b> Sourced and evaluated residential land prior to secure acquisition.</li>
+                <li><i class="fa-solid fa-check"></i> <b>Client B (Diaspora Investor):</b> Delivered complete remote research and preliminary ROI assessment.</li>
+            </ul>
+        </div>
+
+        <!-- 07 — Real Estate Market Research -->
+        <div class="content-section">
+            <div class="section-title"><i class="fa-solid fa-chart-line"></i> 07 — Abuja Land Market (2026)</div>
+            <p class="section-text" style="font-size:12px; margin-bottom:8px;">Combining real estate data analytics with market intelligence:</p>
+            <table class="market-table">
+                <tr><th>Location</th><th>Price Range</th><th>Outlook</th></tr>
+                <tr><td>Guzape 2</td><td>High-Tier</td><td>Strong</td></tr>
+                <tr><td>Katampe Ext.</td><td>High-Tier</td><td>Strong</td></tr>
+                <tr><td>Kurudu</td><td>Growing</td><td>Moderate–Strong</td></tr>
+            </table>
+        </div>
+
+        <!-- Tail End Actions -->
+        <div class="tail-actions">
+            <div class="section-title" style="border:none; margin-bottom:0; padding-bottom:0;"><i class="fa-solid fa-download"></i> Connect & Download</div>
+            <a id="link-portfolio" href="#" target="_blank" rel="noopener noreferrer" class="cta-button">
+                <i class="fa-solid fa-file-pdf"></i> Download Complete Portfolio (PDF)
+            </a>
+            <a href="#" onclick="downloadVCard(); return false;" class="cta-button secondary-cta">
+                <i class="fa-solid fa-address-book"></i> Save Contact to Phonebook
+            </a>
+        </div>
+
+        <div class="footer-branding">
+            Powered by Fortumore Digital Cards
+        </div>
+    </div>
+
+    <script>
+        let profileData = {};
+
+        async function fetchProfile() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const clientId = urlParams.get('id');
+
+            if (!clientId) {
+                document.getElementById('loading-state').innerHTML = "<h3 style='color:#ff5555;'>Error: No Profile ID specified in URL.</h3>";
+                return;
+            }
+
+            // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+            const apiURL = "https://script.google.com/macros/s/AKfycby0wv4hq1Nuxy0W3DhYd-THeyPfN0evRPWSma9SntrfLXGXOmRVJPNcjBe3gchV5fdD/exec?id=" + encodeURIComponent(clientId);
+
+            try {
+                const response = await fetch(apiURL);
+                const data = await response.json();
+
+                if (!data || data.error) {
+                    document.getElementById('loading-state').innerHTML = "<h3 style='color:#ff5555;'>Profile Not Found</h3>";
+                    return;
+                }
+
+                profileData = data;
+
+                // Populate DOM
+                document.getElementById('page-title').innerText = profileData.name + " - Real Estate Portfolio & Digital Card";
+                document.getElementById('p-avatar').src = profileData.avatar;
+                document.getElementById('p-name').innerText = profileData.name;
+                document.getElementById('p-title').innerText = profileData.title;
+                document.getElementById('p-location').innerText = profileData.location;
+                document.getElementById('p-tagline').innerText = profileData.tagline;
+                document.getElementById('p-about').innerText = profileData.about;
+
+                document.getElementById('link-phone').href = "tel:" + profileData.phone;
+                document.getElementById('link-whatsapp').href = "https://wa.me/" + profileData.whatsapp;
+                document.getElementById('link-email').href = "mailto:" + profileData.email;
+                document.getElementById('link-map').href = "https://maps.google.com/?q=" + encodeURIComponent(profileData.location);
+                
+                document.getElementById('p-p1_img').src = profileData.p1_img;
+                document.getElementById('p-p2_img').src = profileData.p2_img;
+                document.getElementById('link-portfolio').href = profileData.portfolio;
+
+                // Show Container
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('main-container').style.display = 'flex';
+
+            } catch (err) {
+                document.getElementById('loading-state').innerHTML = "<h3 style='color:#ff5555;'>Error loading profile data.</h3>";
+            }
+        }
+
+        function downloadVCard() {
+            if (!profileData.name) return;
+            const vcardData = 
+"BEGIN:VCARD\n" +
+"VERSION:3.0\n" +
+"FN:" + profileData.name + "\n" +
+"TITLE:" + profileData.title + "\n" +
+"TEL;TYPE=WORK,VOICE:" + profileData.phone + "\n" +
+"EMAIL:" + profileData.email + "\n" +
+"NOTE:" + profileData.tagline + " - " + profileData.location + "\n" +
+"END:VCARD";
+
+            const encodedUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcardData);
+            const link = document.createElement('a');
+            link.setAttribute('href', encodedUri);
+            link.setAttribute('download', (profileData.id || 'contact') + '.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        fetchProfile();
+    </script>
+</body>
+</html>
