@@ -18,18 +18,14 @@
         async function loadCard() {
             const urlParams = new URLSearchParams(window.location.search);
             const username = urlParams.get('user') || 'david';
+            const container = document.getElementById('card-container');
 
             try {
-                const response = await fetch('users.json');
-                const users = await response.json();
-                const user = users[username];
-
-                const container = document.getElementById('card-container');
-
-                if (!user) {
-                    container.innerHTML = `<div class="text-center py-20 text-red-400 font-semibold">Profile not found.</div>`;
-                    return;
-                }
+                // Fetch the individual user profile from the users folder
+                const response = await fetch(`users/${username}.json`);
+                if (!response.ok) throw new Error("Profile not found");
+                
+                const user = await response.json();
 
                 // Set Page Title
                 document.title = `${user.name} — Digital Card`;
@@ -155,16 +151,17 @@
 
             } catch (err) {
                 console.error("Error loading card data:", err);
+                container.innerHTML = `<div class="text-center py-20 text-red-400 font-semibold">Profile not found or loading error.</div>`;
             }
         }
 
-        // vCard Generation Function
+        // vCard Generation Function (Fetches individual file)
         async function downloadVCard(username) {
-            const res = await fetch('users.json');
-            const users = await res.json();
-            const u = users[username];
+            try {
+                const res = await fetch(`users/${username}.json`);
+                const u = await res.json();
 
-            const vcard = `BEGIN:VCARD
+                const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${u.name}
 TITLE:${u.title}
@@ -174,14 +171,17 @@ EMAIL:${u.email}
 NOTE:${u.tagline}
 END:VCARD`;
 
-            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${u.name.replace(/\s+/g, '_')}.vcf`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+                const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${u.name.replace(/\s+/g, '_')}.vcf`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } catch (err) {
+                console.error("Error generating vCard:", err);
+            }
         }
 
         loadCard();
