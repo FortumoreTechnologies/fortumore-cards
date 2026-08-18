@@ -10,7 +10,6 @@
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center py-8 px-4">
 
     <div id="card-container" class="w-full max-w-md space-y-6">
-        <!-- Dynamically injected user card content goes here -->
         <div class="text-center py-20 text-slate-400">Loading digital card...</div>
     </div>
 
@@ -21,18 +20,13 @@
             const container = document.getElementById('card-container');
 
             try {
-                // Fetch the individual user profile from the users folder
                 const response = await fetch(`users/${username}.json`);
                 if (!response.ok) throw new Error("Profile not found");
                 
                 const user = await response.json();
-
-                // Set Page Title
                 document.title = `${user.name} — Digital Card`;
 
-                // Build HTML Structure dynamically
                 let html = `
-                    <!-- Header Profile Section -->
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center shadow-xl backdrop-blur-md">
                         <div class="relative w-28 h-28 mx-auto mb-4">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 animate-pulse opacity-75"></div>
@@ -43,7 +37,6 @@
                         <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${user.location}</p>
                         <p class="text-slate-300 text-sm mt-3 leading-relaxed">${user.tagline}</p>
 
-                        <!-- Action Buttons -->
                         <div class="grid grid-cols-4 gap-2 mt-6">
                             <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
                                 <i class="fa-solid fa-phone text-blue-400 text-base mb-1"></i> Call
@@ -61,7 +54,6 @@
                     </div>
                 `;
 
-                // Render Dynamic Sections (Universal loop)
                 if (user.sections && Array.isArray(user.sections)) {
                     user.sections.forEach(sec => {
                         html += `<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">`;
@@ -109,26 +101,11 @@
                             });
                             html += `</tbody></table></div>`;
                         }
-                        else if (sec.type === 'valueProposition') {
-                            html += `
-                                <div class="space-y-3">
-                                    <p class="text-slate-300 text-sm leading-relaxed">${sec.subtitle}</p>
-                                    <p class="text-blue-400 font-semibold text-sm italic">${sec.highlight}</p>
-                                    <div class="mt-4 pt-3 border-t border-slate-800">
-                                        <h3 class="text-slate-200 font-semibold text-xs uppercase tracking-wider mb-2">${sec.frameworkTitle}</h3>
-                                        <div class="flex flex-wrap gap-1.5">
-                            `;
-                            sec.steps.forEach(step => {
-                                html += `<span class="bg-slate-950/60 border border-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded-lg">${step}</span>`;
-                            });
-                            html += `</div></div></div>`;
-                        }
 
                         html += `</div>`;
                     });
                 }
 
-                // Fixed Footer Action Buttons (Download Portfolio & Save Contact)
                 html += `
                     <div class="space-y-3 pt-2 pb-6">
                         ${user.portfolioPdf ? `
@@ -155,7 +132,6 @@
             }
         }
 
-        // vCard Generation Function (Fetches individual file)
         async function downloadVCard(username) {
             try {
                 const res = await fetch(`users/${username}.json`);
