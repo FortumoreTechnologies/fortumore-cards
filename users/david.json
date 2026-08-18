@@ -4,7 +4,6 @@
   "company": "Nexus Technologies Ltd",
   "location": "Abuja, Nigeria",
   "tagline": "Building high-performance cloud architectures, fintech APIs, and automated business workflows.",
-  "bio": "Dr. David Adebayo is an enterprise technology leader specializing in scalable cloud platforms and digital transformation across Africa.",
   "phone": "+2348000000000",
   "whatsapp": "2348000000000",
   "email": "david@example.com",
@@ -15,11 +14,23 @@
       "type": "about",
       "number": "01",
       "title": "About Me",
-      "content": "Building high-performance cloud architectures, fintech APIs, and automated business workflows across Africa with over 10 years of experience."
+      "content": "Dr. David Adebayo is an enterprise technology leader specializing in scalable cloud platforms and digital transformation across Africa. Building high-performance cloud architectures, fintech APIs, and automated business workflows with over 10 years of experience."
+    },
+    {
+      "type": "table",
+      "number": "02",
+      "title": "What I Bring to the Client",
+      "description": "Core value delivered through strategic technology partnerships:",
+      "headers": ["Client Need", "Proposed Solution", "Business Value"],
+      "rows": [
+        ["Scalability", "Cloud Infrastructure Architecture", "Zero downtime during peak loads"],
+        ["Velocity", "Custom Fintech APIs & Automation", "Faster time-to-market for products"],
+        ["Reliability", "High-Availability Systems Design", "Robust security and compliance"]
+      ]
     },
     {
       "type": "expertise",
-      "number": "02",
+      "number": "03",
       "title": "Areas of Expertise",
       "groups": [
         {
@@ -34,7 +45,7 @@
     },
     {
       "type": "projects",
-      "number": "03",
+      "number": "04",
       "title": "Selected Projects",
       "items": [
         {
@@ -48,7 +59,7 @@
     },
     {
       "type": "table",
-      "number": "04",
+      "number": "05",
       "title": "Key Metrics & Impact",
       "description": "Measurable results delivered across enterprise deployments:",
       "headers": ["Metric", "Scope", "Impact"],
