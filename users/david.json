@@ -1,0 +1,62 @@
+{
+  "david": {
+    "name": "Dr. David Adebayo",
+    "title": "Managing Director & CTO",
+    "company": "Nexus Technologies Ltd",
+    "location": "Abuja, Nigeria",
+    "tagline": "Building high-performance cloud architectures, fintech APIs, and automated business workflows.",
+    "bio": "Dr. David Adebayo is an enterprise technology leader specializing in scalable cloud platforms and digital transformation across Africa.",
+    "phone": "+2348000000000",
+    "whatsapp": "2348000000000",
+    "email": "david@example.com",
+    "mapUrl": "https://maps.google.com",
+    "portfolioPdf": "https://example.com/david-portfolio.pdf",
+    "sections": [
+      {
+        "type": "about",
+        "number": "01",
+        "title": "About Me",
+        "content": "Building high-performance cloud architectures, fintech APIs, and automated business workflows across Africa with over 10 years of experience."
+      },
+      {
+        "type": "expertise",
+        "number": "02",
+        "title": "Areas of Expertise",
+        "groups": [
+          {
+            "category": "Cloud & Infrastructure",
+            "items": ["AWS & Azure Architecture", "High-Availability Systems"]
+          },
+          {
+            "category": "Software Engineering",
+            "items": ["Fintech APIs", "Automated Workflows"]
+          }
+        ]
+      },
+      {
+        "type": "projects",
+        "number": "03",
+        "title": "Selected Projects",
+        "items": [
+          {
+            "projectName": "Pan-African Payment Gateway",
+            "location": "Lagos & Nairobi",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+            "role": "Lead Architect → API Design → Security Compliance",
+            "insight": "Processed over $10M in monthly transactions with 99.99% uptime."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "number": "04",
+        "title": "Key Metrics & Impact",
+        "description": "Measurable results delivered across enterprise deployments:",
+        "headers": ["Metric", "Scope", "Impact"],
+        "rows": [
+          ["Uptime", "Core Banking", "99.99%"],
+          ["Latency", "API Gateway", "< 45ms"]
+        ]
+      }
+    ]
+  },
