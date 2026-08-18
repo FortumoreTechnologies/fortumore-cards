@@ -1,0 +1,70 @@
+{
+"chibuzor": {
+    "name": "Gabriel Igbokwe",
+    "title": "Automation Engineer & Tech Strategist",
+    "company": "Fortumore Technologies",
+    "location": "Abuja, Nigeria",
+    "tagline": "Building scalable workflow automations, SaaS solutions, and digital systems across Africa.",
+    "phone": "+2348000000000",
+    "whatsapp": "2348000000000",
+    "email": "gabriel@example.com",
+    "mapUrl": "https://maps.google.com",
+    "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
+    "image": "YOUR_IMAGE_URL_HERE",
+    "sections": [
+      {
+        "type": "about",
+        "number": "01",
+        "title": "About Me",
+        "content": "Gabriel Igbokwe is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
+      },
+      {
+        "type": "table",
+        "number": "02",
+        "title": "Value Proposition",
+        "description": "What I bring to the table:",
+        "headers": ["Service Area", "Business Impact"],
+        "rows": [
+          ["Operational Efficiency", "Reducing manual tasks by 80%"],
+          ["Digital Transformation", "End-to-end custom SaaS stack"],
+          ["Strategic Growth", "Optimized lead routing & CRM"]
+        ]
+      },
+      {
+        "type": "expertise",
+        "number": "03",
+        "title": "Core Expertise",
+        "groups": [
+          {
+            "category": "Workflow Automation",
+            "items": ["n8n & Google Apps Script", "API Integrations & Webhooks"]
+          },
+          {
+            "category": "Digital Solutions",
+            "items": ["SaaS Architecture", "AppSheet & Database Systems"]
+          }
+        ]
+      },
+      {
+        "type": "projects",
+        "number": "04",
+        "title": "Featured Projects",
+        "items": [
+          {
+            "projectName": "Fortumore Cards",
+            "location": "Abuja, Nigeria",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+            "role": "Lead Architect",
+            "insight": "Developed a high-performance, low-cost digital business card SaaS platform."
+          },
+          {
+            "projectName": "Restaurant Automation System",
+            "location": "Abuja, Nigeria",
+            "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9",
+            "role": "Systems Engineer",
+            "insight": "Built a seamless digital menu & automated order-routing system to streamline service."
+          }
+        ]
+      }
+    ]
+  },
