@@ -113,6 +113,20 @@
                             });
                             html += `</tbody></table></div>`;
                         }
+                        else if (sec.type === 'valueProposition') {
+                            html += `
+                                <div class="space-y-3">
+                                    <p class="text-slate-300 text-sm leading-relaxed">${sec.subtitle}</p>
+                                    <p class="text-blue-400 font-semibold text-sm italic">${sec.highlight}</p>
+                                    <div class="mt-4 pt-3 border-t border-slate-800">
+                                        <h3 class="text-slate-200 font-semibold text-xs uppercase tracking-wider mb-2">${sec.frameworkTitle}</h3>
+                                        <div class="flex flex-wrap gap-1.5">
+                            `;
+                            sec.steps.forEach(step => {
+                                html += `<span class="bg-slate-950/60 border border-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded-lg">${step}</span>`;
+                            });
+                            html += `</div></div></div>`;
+                        }
 
                         html += `</div>`;
                     });
