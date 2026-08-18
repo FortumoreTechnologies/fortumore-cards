@@ -128,5 +128,26 @@
         ]
       }
     ]
+  },
+  "sarah": {
+    "name": "Sarah Jenkins",
+    "title": "Product Designer",
+    "company": "Design Studio",
+    "location": "Lagos, Nigeria",
+    "tagline": "Crafting intuitive user interfaces and unforgettable digital experiences.",
+    "phone": "+2348000000000",
+    "whatsapp": "2348000000000",
+    "email": "sarah@example.com",
+    "mapUrl": "https://maps.google.com",
+    "portfolioPdf": "https://example.com/sarah-portfolio.pdf",
+    "image": "YOUR_IMAGE_URL_HERE",
+    "sections": [
+      {
+        "type": "about",
+        "number": "01",
+        "title": "About Me",
+        "content": "Sarah Jenkins is a creative product designer specializing in UI/UX systems."
+      }
+    ]
   }
-}  
+}
