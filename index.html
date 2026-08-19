@@ -26,26 +26,30 @@
                 const user = await response.json();
                 document.title = `${user.name} — Digital Card`;
 
+                // Handle dynamic theme colors if specified in JSON (Defaults to blue/indigo)
+                const primaryColor = user.themeColor || '#3b82f6'; 
+                const secondaryColor = user.secondaryColor || '#6366f1';
+
                 let html = `
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center shadow-xl backdrop-blur-md">
                         <div class="relative w-28 h-28 mx-auto mb-4">
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 animate-pulse opacity-75"></div>
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[${primaryColor}] to-[${secondaryColor}] animate-pulse opacity-75"></div>
                             <img src="${user.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb'}" alt="${user.name}" class="relative w-full h-full object-cover rounded-full border-2 border-slate-700">
                         </div>
-                        <h1 class="text-2xl font-bold tracking-tight">${user.name} <i class="fa-solid fa-circle-check text-blue-400 text-lg"></i></h1>
-                        <p class="text-blue-400 font-medium text-sm mt-1">${user.title} ${user.company ? '• ' + user.company : ''}</p>
+                        <h1 class="text-2xl font-bold tracking-tight">${user.name} <i class="fa-solid fa-circle-check" style="color: ${primaryColor};"></i></h1>
+                        <p class="font-medium text-sm mt-1" style="color: ${primaryColor};">${user.title} ${user.company ? '• ' + user.company : ''}</p>
                         <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${user.location}</p>
                         <p class="text-slate-300 text-sm mt-3 leading-relaxed">${user.tagline}</p>
 
                         <div class="grid grid-cols-4 gap-2 mt-6">
                             <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
-                                <i class="fa-solid fa-phone text-blue-400 text-base mb-1"></i> Call
+                                <i class="fa-solid fa-phone text-base mb-1" style="color: ${primaryColor};"></i> Call
                             </a>
                             <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
                                 <i class="fa-brands fa-whatsapp text-green-400 text-base mb-1"></i> WhatsApp
                             </a>
                             <a href="mailto:${user.email}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
-                                <i class="fa-solid fa-envelope text-indigo-400 text-base mb-1"></i> Email
+                                <i class="fa-solid fa-envelope text-base mb-1" style="color: ${secondaryColor};"></i> Email
                             </a>
                             <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-3 rounded-xl transition text-xs font-medium text-slate-200">
                                 <i class="fa-solid fa-map-location-dot text-amber-400 text-base mb-1"></i> Map
@@ -57,7 +61,7 @@
                 if (user.sections && Array.isArray(user.sections)) {
                     user.sections.forEach(sec => {
                         html += `<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">`;
-                        html += `<h2 class="text-blue-400 font-bold tracking-wide text-sm"><i class="fa-solid fa-layer-group mr-2"></i>${sec.number} — ${sec.title}</h2>`;
+                        html += `<h2 class="font-bold tracking-wide text-sm" style="color: ${primaryColor};"><i class="fa-solid fa-layer-group mr-2"></i>${sec.number} — ${sec.title}</h2>`;
 
                         if (sec.type === 'about') {
                             html += `<p class="text-slate-300 text-sm leading-relaxed">${sec.content}</p>`;
@@ -66,7 +70,7 @@
                             sec.groups.forEach(g => {
                                 html += `<div class="mt-3"><h3 class="text-slate-200 font-semibold text-xs uppercase tracking-wider mb-2">${g.category}</h3><ul class="space-y-1.5">`;
                                 g.items.forEach(item => {
-                                    html += `<li class="text-slate-400 text-sm flex items-center"><i class="fa-solid fa-circle text-blue-500 text-[6px] mr-2"></i>${item}</li>`;
+                                    html += `<li class="text-slate-400 text-sm flex items-center"><i class="fa-solid fa-circle text-[6px] mr-2" style="color: ${primaryColor};"></i>${item}</li>`;
                                 });
                                 html += `</ul></div>`;
                             });
@@ -109,14 +113,30 @@
                 html += `
                     <div class="space-y-3 pt-2 pb-6">
                         ${user.portfolioPdf ? `
-                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm">
+                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm" style="background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});">
                                 <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
                             </a>
                         ` : ''}
                         
                         <button onclick="downloadVCard('${username}')" class="w-full flex items-center justify-center bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm">
-                            <i class="fa-solid fa-address-book mr-2 text-blue-400 text-base"></i> Save Contact to Phonebook
+                            <i class="fa-solid fa-address-book mr-2 text-base" style="color: ${primaryColor};"></i> Save Contact to Phonebook
                         </button>
+                    </div>
+
+                    <!-- Platform Share Section -->
+                    <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 text-center space-y-3 mb-4">
+                        <p class="text-xs text-slate-400 font-medium">Love this digital card? Get your own platform powered by Fortumore.</p>
+                        <div class="flex justify-center gap-2">
+                            <a href="https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Fortumore Digital Cards: ' + window.location.origin)}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-green-400 text-xs px-3 py-2 rounded-lg transition flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+                            </a>
+                            <a href="https://t.me/share/url?url=${encodeURIComponent(window.location.origin)}&text=${encodeURIComponent('Create your professional digital card!')}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-blue-400 text-xs px-3 py-2 rounded-lg transition flex items-center gap-1.5">
+                                <i class="fa-brands fa-telegram"></i> Telegram
+                            </a>
+                            <button onclick="navigator.clipboard.writeText(window.location.origin); alert('Platform link copied to clipboard!');" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs px-3 py-2 rounded-lg transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-link"></i> Copy Link
+                            </button>
+                        </div>
                     </div>
 
                     <div class="text-center text-xs text-slate-500 pb-4">
@@ -128,7 +148,7 @@
 
             } catch (err) {
                 console.error("Error loading card data:", err);
-                container.innerHTML = `<div class="text-center py-20 text-red-400 font-semibold">Profile not found or loading error.</div>`;
+                container.innerHTML = `<div class="text-center py-20 text-red-400 font-semibold bg-slate-900/50 border border-slate-800 rounded-2xl p-6">Oops! This profile encountered a loading error or syntax issue. Please check the JSON data file.</div>`;
             }
         }
 
