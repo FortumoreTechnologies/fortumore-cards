@@ -140,12 +140,14 @@
             }
         }
 
-        // Platform share function triggers mobile native share sheet or copies link nicely
+        // Platform share function: shares the individual client's exact card URL
         async function sharePlatform() {
+            const currentUrl = window.location.href; // Grabs the full specific URL including the user parameter
+
             const shareData = {
-                title: 'Fortumore Digital Cards',
-                text: 'Create your professional digital card and platform!',
-                url: window.location.origin
+                title: 'Digital Business Card',
+                text: 'Check out this professional digital business card:',
+                url: currentUrl
             };
 
             if (navigator.share) {
@@ -155,8 +157,8 @@
                     console.log('Share canceled or failed', err);
                 }
             } else {
-                navigator.clipboard.writeText(window.location.origin);
-                alert('Platform link copied to clipboard!');
+                navigator.clipboard.writeText(currentUrl);
+                alert('Card link copied to clipboard!');
             }
         }
 
