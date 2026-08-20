@@ -12,6 +12,12 @@
   "mapUrl": "https://maps.app.goo.gl/w6vj879bqypHPwbG8",
   "portfolioPdf": "https://raw.githubusercontent.com/FortumoreTechnologies/fortumore-cards/main/documet/lawhenz%20main.pdf",
   "image": "images/lawhenz.jpeg",
+  "socials": {
+    "linkedin": "https://linkedin.com/in/lawhenzenergy",
+    "facebook": "https://facebook.com/lawhenzenergy",
+    "instagram": "https://instagram.com/lawhenzenergy",
+    "tiktok": "https://tiktok.com/@lawhenzenergy"
+  },
   "sections": [
     {
       "type": "about",
