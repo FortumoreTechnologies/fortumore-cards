@@ -115,7 +115,7 @@
                 }
 
                 html += `
-                    <div class="space-y-3 pt-2 pb-6">
+                    <div class="space-y-3 pt-2 pb-2">
                         ${user.portfolioPdf ? `
                             <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm" style="background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});">
                                 <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
@@ -126,6 +126,16 @@
                             <i class="fa-solid fa-address-book mr-2 text-base" style="color: ${primaryColor};"></i> Save Contact to Phonebook
                         </button>
                     </div>
+
+                    <!-- Social Media Links Bar at the Bottom -->
+                    ${user.socials ? `
+                        <div class="flex justify-center items-center gap-3 pb-2">
+                            ${user.socials.linkedin ? `<a href="${user.socials.linkedin}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-sm"></i></a>` : ''}
+                            ${user.socials.facebook ? `<a href="${user.socials.facebook}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-facebook-f text-sm"></i></a>` : ''}
+                            ${user.socials.instagram ? `<a href="${user.socials.instagram}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-instagram text-sm"></i></a>` : ''}
+                            ${user.socials.tiktok ? `<a href="${user.socials.tiktok}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-tiktok text-sm"></i></a>` : ''}
+                        </div>
+                    ` : ''}
 
                     <div class="text-center text-xs text-slate-500 pb-4">
                         Powered by Fortumore Digital Cards
