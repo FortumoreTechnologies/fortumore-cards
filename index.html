@@ -14,13 +14,15 @@
     </div>
 
     <script>
+        const API_BASE = 'https://yellow-heart-3cc9.fortumore-global.workers.dev';
+
         async function loadCard() {
             const urlParams = new URLSearchParams(window.location.search);
             const username = urlParams.get('user') || 'david';
             const container = document.getElementById('card-container');
 
             try {
-                const response = await fetch(`users/${username}.json`);
+                const response = await fetch(`${API_BASE}/api/profile/${username}`);
                 if (!response.ok) throw new Error("Profile not found");
                 
                 const user = await response.json();
@@ -138,7 +140,7 @@
                     ` : ''}
 
                     <div class="text-center text-xs text-slate-500 pb-4">
-                        Powered by Fortumore Digital Cards
+                        Powered by Fortumore Global
                     </div>
                 `;
 
@@ -174,7 +176,7 @@
 
         async function downloadVCard(username) {
             try {
-                const res = await fetch(`users/${username}.json`);
+                const res = await fetch(`${API_BASE}/api/profile/${username}`);
                 const u = await res.json();
 
                 const vcard = `BEGIN:VCARD
