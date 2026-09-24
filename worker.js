@@ -1,3 +1,7 @@
+// Fortumore Digital Cards - Cloudflare Worker
+// This file is stored in GitHub for version control
+// The actual worker is deployed at: https://yellow-heart-3cc9.fortumore-global.workers.dev
+
 export default {
   async fetch(request, env) {
     const corsHeaders = {
@@ -14,7 +18,7 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // GET profile
+    // GET /api/profile/:username - Fetch profile data
     if (path.startsWith('/api/profile/') && request.method === 'GET') {
       const username = path.replace('/api/profile/', '');
       
@@ -43,7 +47,7 @@ export default {
       }
     }
 
-    // POST profile
+    // POST /api/profile/:username - Create/Update profile
     if (path.startsWith('/api/profile/') && request.method === 'POST') {
       const username = path.replace('/api/profile/', '');
       const token = request.headers.get('Authorization')?.replace('Bearer ', '');
@@ -82,4 +86,19 @@ export default {
           JSON.stringify(data.sections)
         ).run();
 
-        return new Response(JSON.stringify({ success: true }), { headers:
+        return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
+      } catch (err) {
+        return new Response(JSON.stringify({ error: err.message }), {
+          status: 500,
+          headers: corsHeaders,
+        });
+      }
+    }
+
+    // Default response for unknown routes
+    return new Response(JSON.stringify({ error: 'Not found' }), {
+      status: 404,
+      headers: corsHeaders,
+    });
+  },
+};
