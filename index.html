@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Igbokwe — Digital Card</title>
+    <title>Digital Business Card</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
     </div>
 
     <script>
-        // Fallback embedded JSON data for Gabriel Igbokwe so it works seamlessly offline/standalone
+        // Fallback embedded JSON data for Gabriel Igbokwe
         const fallbackUserData = {
             "name": "Gabriel Igbokwe",
             "title": "Automation Engineer & Tech Strategist",
@@ -107,20 +107,12 @@
                     "title": "Featured Projects & Demos",
                     "items": [
                         {
-                            "projectName": "Fortumore Cards Platform Walkthrough",
+                            "projectName": "Fortumore Cards Platform",
                             "location": "Abuja, Nigeria",
                             "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
+                            "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
                             "role": "Lead Architect",
-                            "insight": "Developed a high-performance, low-cost digital business card SaaS platform.",
-                            "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        },
-                        {
-                            "projectName": "Restaurant Automated Order Router",
-                            "location": "Abuja, Nigeria",
-                            "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600",
-                            "role": "Systems Engineer",
-                            "insight": "Built a seamless digital menu & automated order-routing system to streamline service.",
-                            "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            "insight": "Developed a high-performance, low-cost digital business card SaaS platform."
                         }
                     ]
                 }
@@ -219,16 +211,26 @@
                         } else if (sec.type === 'projects') {
                             sec.items.forEach(p => {
                                 html += `
-                                    <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl overflow-hidden mt-3 shadow-inner">
-                                        ${p.videoUrl ? `
-                                            <div class="relative w-full aspect-video bg-black">
-                                                <iframe src="${p.videoUrl}" class="w-full h-full border-0" allowfullscreen title="${p.projectName}"></iframe>
+                                    <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl overflow-hidden mt-3 p-4 space-y-3 shadow-inner">
+                                        <h3 class="font-bold text-slate-100 text-base">${p.projectName}</h3>
+                                        
+                                        <!-- Separated Image Section -->
+                                        ${p.image ? `
+                                            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-900">
+                                                <img src="${p.image}" alt="${p.projectName}" class="w-full h-44 object-cover" onerror="this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Project+Preview'">
                                             </div>
-                                        ` : `
-                                            <img src="${p.image}" alt="${p.projectName}" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Project+Preview'">
-                                        `}
-                                        <div class="p-4 space-y-2">
-                                            <h3 class="font-bold text-slate-100 text-base">${p.projectName}</h3>
+                                        ` : ''}
+
+                                        <!-- Separated Video Section -->
+                                        ${p.videoUrl ? `
+                                            <div class="rounded-xl overflow-hidden border border-slate-800 bg-black">
+                                                <div class="relative w-full aspect-video">
+                                                    <iframe src="${p.videoUrl}" class="w-full h-full border-0" allowfullscreen title="${p.projectName}"></iframe>
+                                                </div>
+                                            </div>
+                                        ` : ''}
+
+                                        <div class="space-y-1 pt-1">
                                             <p class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i>${p.location}</p>
                                             <p class="text-xs text-slate-300"><strong class="text-slate-200">Role:</strong> ${p.role}</p>
                                             <p class="text-xs text-slate-400"><strong class="text-slate-200">Impact:</strong> ${p.insight}</p>
@@ -261,7 +263,7 @@
                 html += `
                     <div class="space-y-3 pt-2 pb-2">
                         ${user.portfolioPdf ? `
-                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition text-sm hover:opacity-90 transform hover:-translate-y-0.5" style="background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});">
+                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition text-sm hover:opacity-90 transform hover:-translate-y-0.5" style="background: linear-gradient(to right, ${primaryColor},${secondaryColor});">
                                 <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
                             </a>
                         ` : ''}
@@ -314,8 +316,7 @@
                     console.log('Share canceled or failed', err);
                 }
             } else {
-                document.execCommand('copy');
-                // Fallback custom toast/message box instead of alert()
+                navigator.clipboard.writeText(currentUrl);
                 showToast('Card link copied to clipboard!');
             }
         }
@@ -363,7 +364,6 @@ END:VCARD`;
             }
         }
 
-        // Initialize on load
         window.addEventListener('DOMContentLoaded', loadCard);
     </script>
 </body>
