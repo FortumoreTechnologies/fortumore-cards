@@ -1,5 +1,5 @@
 {
-  "name": "Gabriel Igbokwe",
+  "name": "Chibuzor",
   "title": "Automation Engineer & Tech Strategist",
   "company": "Fortumore Technologies",
   "location": "Abuja, Nigeria",
@@ -7,15 +7,17 @@
   "phone": "+2348107728594",
   "whatsapp": "2348107728594",
   "email": "fortumoregroup.ng@gmail.com",
-  "mapUrl": "https://maps.google.com",
+  "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
   "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
   "image": "images/chibuzor.jpg.jpeg",
+  "themeColor": "#3b82f6",
+  "secondaryColor": "#6366f1",
   "sections": [
     {
       "type": "about",
       "number": "01",
       "title": "About Me",
-      "content": "Gabriel Igbokwe is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
+      "content": "Chibuzor is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
     },
     {
       "type": "table",
@@ -84,25 +86,31 @@
       ]
     },
     {
-      "type": "projects",
+      "type": "videos",
       "number": "05",
       "title": "Featured Videos",
       "items": [
         {
-          "projectName": "n8n Workflow Automation Masterclass",
-          "location": "YouTube (14:25)",
-          "image": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-          "role": "Creator & Host",
-          "insight": "A deep dive into building enterprise-grade backend automation pipelines using n8n and Webhooks."
+          "videoName": "n8n Workflow Automation Masterclass",
+          "platform": "YouTube",
+          "duration": "14:25",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "A deep dive into building enterprise-grade backend automation pipelines using n8n and Webhooks."
         },
         {
-          "projectName": "Cloudflare Workers & SaaS Scaling",
-          "location": "Vimeo (08:40)",
-          "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe",
-          "role": "Lead Presenter",
-          "insight": "Showcasing high-speed edge computing patterns for modern digital applications."
+          "videoName": "Cloudflare Workers & SaaS Scaling",
+          "platform": "Vimeo",
+          "duration": "08:40",
+          "videoUrl": "https://player.vimeo.com/video/148751717",
+          "description": "Showcasing high-speed edge computing patterns for modern digital applications."
         }
       ]
     }
-  ]
+  ],
+  "socials": {
+    "linkedin": "https://linkedin.com",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "tiktok": "https://tiktok.com"
+  }
 }
