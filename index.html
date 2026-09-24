@@ -52,9 +52,8 @@
     </div>
 
     <script>
-        // Fallback embedded JSON data for Gabriel Igbokwe so it works seamlessly offline/standalone
         const fallbackUserData = {
-            "name": "Gabriel Igbokwe",
+            "name": "Chibuzor",
             "title": "Automation Engineer & Tech Strategist",
             "company": "Fortumore Technologies",
             "location": "Abuja, Nigeria",
@@ -63,79 +62,17 @@
             "whatsapp": "2348107728594",
             "email": "fortumoregroup.ng@gmail.com",
             "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
-            "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
+            "portfolioPdf": "https://example.com/portfolio.pdf",
             "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
             "themeColor": "#3b82f6",
             "secondaryColor": "#6366f1",
-            "sections": [
-                {
-                    "type": "about",
-                    "number": "01",
-                    "title": "About Me",
-                    "content": "Gabriel Igbokwe is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
-                },
-                {
-                    "type": "table",
-                    "number": "02",
-                    "title": "Value Proposition",
-                    "description": "What I bring to the table:",
-                    "headers": ["Service Area", "Business Impact"],
-                    "rows": [
-                        ["Operational Efficiency", "Reducing manual tasks by 80%"],
-                        ["Digital Transformation", "End-to-end custom SaaS stack"],
-                        ["Strategic Growth", "Optimized lead routing & CRM"]
-                    ]
-                },
-                {
-                    "type": "expertise",
-                    "number": "03",
-                    "title": "Core Expertise",
-                    "groups": [
-                        {
-                            "category": "Workflow Automation",
-                            "items": ["n8n & Google Apps Script", "API Integrations & Webhooks"]
-                        },
-                        {
-                            "category": "Digital Solutions",
-                            "items": ["SaaS Architecture", "AppSheet & Database Systems"]
-                        }
-                    ]
-                },
-                {
-                    "type": "projects",
-                    "number": "04",
-                    "title": "Featured Projects & Demos",
-                    "items": [
-                        {
-                            "projectName": "Fortumore Cards Platform Walkthrough",
-                            "location": "Abuja, Nigeria",
-                            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
-                            "role": "Lead Architect",
-                            "insight": "Developed a high-performance, low-cost digital business card SaaS platform.",
-                            "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        },
-                        {
-                            "projectName": "Restaurant Automated Order Router",
-                            "location": "Abuja, Nigeria",
-                            "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600",
-                            "role": "Systems Engineer",
-                            "insight": "Built a seamless digital menu & automated order-routing system to streamline service.",
-                            "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        }
-                    ]
-                }
-            ],
-            "socials": {
-                "linkedin": "https://linkedin.com",
-                "facebook": "https://facebook.com",
-                "instagram": "https://instagram.com",
-                "tiktok": "https://tiktok.com"
-            }
+            "sections": [],
+            "socials": {}
         };
 
         async function loadCard() {
             const urlParams = new URLSearchParams(window.location.search);
-            const username = urlParams.get('user') || 'gabriel';
+            const username = urlParams.get('user') || 'chibuzor';
             const container = document.getElementById('card-container');
             
             let user;
@@ -221,18 +158,29 @@
                                 sec.items.forEach(p => {
                                     html += `
                                         <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl overflow-hidden mt-3 shadow-inner">
-                                            ${p.videoUrl ? `
-                                                <div class="relative w-full aspect-video bg-black">
-                                                    <iframe src="${p.videoUrl}" class="w-full h-full border-0" allowfullscreen title="${p.projectName || 'Project Video'}"></iframe>
-                                                </div>
-                                            ` : `
-                                                <img src="${p.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71'}" alt="${p.projectName || 'Project'}" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Project+Preview'">
-                                            `}
+                                            <img src="${p.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71'}" alt="${p.projectName || 'Project'}" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Project+Preview'">
                                             <div class="p-4 space-y-2">
                                                 <h3 class="font-bold text-slate-100 text-base">${p.projectName || ''}</h3>
                                                 ${p.location ? `<p class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i>${p.location}</p>` : ''}
                                                 ${p.role ? `<p class="text-xs text-slate-300"><strong class="text-slate-200">Role:</strong> ${p.role}</p>` : ''}
                                                 ${p.insight ? `<p class="text-xs text-slate-400"><strong class="text-slate-200">Impact:</strong> ${p.insight}</p>` : ''}
+                                            </div>
+                                        </div>
+                                    `;
+                                });
+                            }
+                        } else if (sec.type === 'videos') {
+                            if (sec.items && Array.isArray(sec.items)) {
+                                sec.items.forEach(v => {
+                                    html += `
+                                        <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl overflow-hidden mt-3 shadow-inner">
+                                            <div class="relative w-full aspect-video bg-black">
+                                                <iframe src="${v.videoUrl}" class="w-full h-full border-0" allowfullscreen title="${v.videoName || 'Embedded Video'}"></iframe>
+                                            </div>
+                                            <div class="p-4 space-y-2">
+                                                <h3 class="font-bold text-slate-100 text-base">${v.videoName || ''}</h3>
+                                                ${v.platform ? `<p class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-video" style="color: ${primaryColor};"></i>Platform: ${v.platform}${v.duration ? '• ' + v.duration : ''}</p>` : ''}
+                                                ${v.description ? `<p class="text-xs text-slate-300"><strong class="text-slate-200">Details:</strong> ${v.description}</p>` : ''}
                                             </div>
                                         </div>
                                     `;
@@ -263,7 +211,7 @@
                 html += `
                     <div class="space-y-3 pt-2 pb-2">
                         ${user.portfolioPdf ? `
-                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition text-sm hover:opacity-90 transform hover:-translate-y-0.5" style="background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});">
+                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition text-sm hover:opacity-90 transform hover:-translate-y-0.5" style="background: linear-gradient(to right, ${primaryColor},${secondaryColor});">
                                 <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
                             </a>
                         ` : ''}
@@ -273,7 +221,7 @@
                     </div>
                 `;
 
-                if (user.socials) {
+                if (user.socials && Object.keys(user.socials).length > 0) {
                     html += `
                         <div class="flex justify-center items-center gap-3 pb-2">
                             ${user.socials.linkedin ? `<a href="${user.socials.linkedin}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition shadow"><i class="fa-brands fa-linkedin-in text-sm"></i></a>` : ''}
@@ -316,8 +264,6 @@
                     console.log('Share canceled or failed', err);
                 }
             } else {
-                document.execCommand('copy');
-                // Fallback custom toast/message box instead of alert()
                 showToast('Card link copied to clipboard!');
             }
         }
@@ -365,7 +311,6 @@ END:VCARD`;
             }
         }
 
-        // Initialize on load
         window.addEventListener('DOMContentLoaded', loadCard);
     </script>
 </body>
