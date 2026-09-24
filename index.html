@@ -1,115 +1,375 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Business Card</title>
+    <title>Fortumore Elite</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Premium loading animation */
+        @keyframes elitePulse {
+            0%, 100% {
+                opacity: 0.45;
+                transform: scale(0.98);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .elite-loading {
+            animation: elitePulse 2s ease-in-out infinite;
+        }
+
+        .elite-dot {
+            animation: dotPulse 1.4s infinite ease-in-out;
+        }
+
+        .elite-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .elite-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotPulse {
+            0%, 80%, 100% {
+                opacity: 0.25;
+                transform: translateY(0);
+            }
+            40% {
+                opacity: 1;
+                transform: translateY(-3px);
+            }
+        }
+    </style>
 </head>
+
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center py-8 px-4">
 
     <div id="card-container" class="w-full max-w-md space-y-6">
-        <div class="text-center py-20 text-slate-400">Loading digital card...</div>
+
+        <!-- Fortumore Elite Loading Screen -->
+        <div class="flex flex-col items-center justify-center py-24 text-center">
+
+            <div class="elite-loading">
+                <div class="text-sm font-semibold tracking-[0.35em] text-slate-300">
+                    FORTUMORE
+                </div>
+
+                <div class="text-2xl font-bold tracking-[0.25em] mt-2 text-white">
+                    ELITE
+                </div>
+            </div>
+
+            <div class="flex items-center gap-1.5 mt-5 text-slate-500 text-xs">
+                <span>Loading</span>
+                <span class="elite-dot">•</span>
+                <span class="elite-dot">•</span>
+                <span class="elite-dot">•</span>
+            </div>
+
+        </div>
+
     </div>
 
     <script>
-        const API_BASE = 'https://yellow-heart-3cc9.fortumore-global.workers.dev';
-
         async function loadCard() {
             const urlParams = new URLSearchParams(window.location.search);
             const username = urlParams.get('user') || 'david';
             const container = document.getElementById('card-container');
 
             try {
-                const response = await fetch(`${API_BASE}/api/profile/${username}`);
+                const response = await fetch(`users/${username}.json`);
                 if (!response.ok) throw new Error("Profile not found");
-                
-                const user = await response.json();
-                document.title = `${user.name} — Digital Card`;
 
-                // Handle dynamic theme colors if specified in JSON (Defaults to blue/indigo)
-                const primaryColor = user.themeColor || '#3b82f6'; 
+                const user = await response.json();
+
+                document.title = `${user.name} — Fortumore Elite`;
+
+                const primaryColor = user.themeColor || '#3b82f6';
                 const secondaryColor = user.secondaryColor || '#6366f1';
 
                 let html = `
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center shadow-xl backdrop-blur-md">
+
                         <div class="relative w-28 h-28 mx-auto mb-4">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[${primaryColor}] to-[${secondaryColor}] animate-pulse opacity-75"></div>
-                            <img src="${user.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb'}" alt="${user.name}" class="relative w-full h-full object-cover rounded-full border-2 border-slate-700">
-                        </div>
-                        <h1 class="text-2xl font-bold tracking-tight">${user.name} <i class="fa-solid fa-circle-check" style="color: ${primaryColor};"></i></h1>
-                        <p class="font-medium text-sm mt-1" style="color: ${primaryColor};">${user.title} ${user.company ? '• ' + user.company : ''}</p>
-                        <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${user.location}</p>
-                        <p class="text-slate-300 text-sm mt-3 leading-relaxed">${user.tagline}</p>
 
-                        <!-- Top Action Grid including Call, WhatsApp, Email, Map, and Platform Share -->
+                            <img
+                                src="${user.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb'}"
+                                alt="${user.name}"
+                                loading="eager"
+                                class="relative w-full h-full object-cover rounded-full border-2 border-slate-700"
+                            >
+                        </div>
+
+                        <h1 class="text-2xl font-bold tracking-tight">
+                            ${user.name}
+                            <i class="fa-solid fa-circle-check" style="color: ${primaryColor};"></i>
+                        </h1>
+
+                        <p class="font-medium text-sm mt-1" style="color: ${primaryColor};">
+                            ${user.title} ${user.company ? '• ' + user.company : ''}
+                        </p>
+
+                        <p class="text-slate-400 text-xs mt-1">
+                            <i class="fa-solid fa-location-dot mr-1"></i>${user.location}
+                        </p>
+
+                        <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+                            ${user.tagline}
+                        </p>
+
                         <div class="grid grid-cols-5 gap-2 mt-6">
-                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
-                                <i class="fa-solid fa-phone text-sm mb-1" style="color: ${primaryColor};"></i> Call
+
+                            <a href="tel:${user.phone}"
+                               class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
+                                <i class="fa-solid fa-phone text-sm mb-1" style="color: ${primaryColor};"></i>
+                                Call
                             </a>
-                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
-                                <i class="fa-brands fa-whatsapp text-green-400 text-sm mb-1"></i> WhatsApp
+
+                            <a href="https://wa.me/${user.whatsapp}"
+                               target="_blank"
+                               class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
+                                <i class="fa-brands fa-whatsapp text-green-400 text-sm mb-1"></i>
+                                WhatsApp
                             </a>
-                            <a href="mailto:${user.email}" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
-                                <i class="fa-solid fa-envelope text-sm mb-1" style="color: ${secondaryColor};"></i> Email
+
+                            <a href="mailto:${user.email}"
+                               class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
+                                <i class="fa-solid fa-envelope text-sm mb-1" style="color: ${secondaryColor};"></i>
+                                Email
                             </a>
-                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
-                                <i class="fa-solid fa-map-location-dot text-amber-400 text-sm mb-1"></i> Map
+
+                            <a href="${user.mapUrl}"
+                               target="_blank"
+                               class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200">
+                                <i class="fa-solid fa-map-location-dot text-amber-400 text-sm mb-1"></i>
+                                Map
                             </a>
-                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200 cursor-pointer">
-                                <i class="fa-solid fa-share-nodes text-sm mb-1" style="color: ${primaryColor};"></i> Share
+
+                            <button onclick="sharePlatform()"
+                                    class="flex flex-col items-center justify-center bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-[11px] font-medium text-slate-200 cursor-pointer">
+                                <i class="fa-solid fa-share-nodes text-sm mb-1" style="color: ${primaryColor};"></i>
+                                Share
                             </button>
+
                         </div>
                     </div>
                 `;
 
                 if (user.sections && Array.isArray(user.sections)) {
+
                     user.sections.forEach(sec => {
-                        html += `<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">`;
-                        html += `<h2 class="font-bold tracking-wide text-sm" style="color: ${primaryColor};"><i class="fa-solid fa-layer-group mr-2"></i>${sec.number} — ${sec.title}</h2>`;
+
+                        html += `
+                            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+                                <h2 class="font-bold tracking-wide text-sm"
+                                    style="color: ${primaryColor};">
+                                    <i class="fa-solid fa-layer-group mr-2"></i>
+                                    ${sec.number} — ${sec.title}
+                                </h2>
+                        `;
 
                         if (sec.type === 'about') {
-                            html += `<p class="text-slate-300 text-sm leading-relaxed">${sec.content}</p>`;
-                        } 
+
+                            html += `
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    ${sec.content}
+                                </p>
+                            `;
+
+                        }
+
                         else if (sec.type === 'expertise') {
+
                             sec.groups.forEach(g => {
-                                html += `<div class="mt-3"><h3 class="text-slate-200 font-semibold text-xs uppercase tracking-wider mb-2">${g.category}</h3><ul class="space-y-1.5">`;
+
+                                html += `
+                                    <div class="mt-3">
+                                        <h3 class="text-slate-200 font-semibold text-xs uppercase tracking-wider mb-2">
+                                            ${g.category}
+                                        </h3>
+
+                                        <ul class="space-y-1.5">
+                                `;
+
                                 g.items.forEach(item => {
-                                    html += `<li class="text-slate-400 text-sm flex items-center"><i class="fa-solid fa-circle text-[6px] mr-2" style="color: ${primaryColor};"></i>${item}</li>`;
+
+                                    html += `
+                                        <li class="text-slate-400 text-sm flex items-center">
+                                            <i class="fa-solid fa-circle text-[6px] mr-2"
+                                               style="color: ${primaryColor};"></i>
+                                            ${item}
+                                        </li>
+                                    `;
+
                                 });
+
                                 html += `</ul></div>`;
                             });
-                        } 
+
+                        }
+
                         else if (sec.type === 'projects') {
+
                             sec.items.forEach(p => {
+
                                 html += `
                                     <div class="bg-slate-950/50 border border-slate-800/80 rounded-xl overflow-hidden mt-3">
-                                        <img src="${p.image}" alt="${p.projectName}" class="w-full h-40 object-cover">
+
+                                        <img
+                                            src="${p.image}"
+                                            alt="${p.projectName}"
+                                            loading="lazy"
+                                            class="w-full h-40 object-cover"
+                                        >
+
                                         <div class="p-4 space-y-2">
-                                            <h3 class="font-bold text-slate-100 text-base">${p.projectName}</h3>
-                                            <p class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i>${p.location}</p>
-                                            <p class="text-xs text-slate-300"><strong class="text-slate-200">Role:</strong> ${p.role}</p>
-                                            <p class="text-xs text-slate-400"><strong class="text-slate-200">Impact:</strong> ${p.insight}</p>
+
+                                            <h3 class="font-bold text-slate-100 text-base">
+                                                ${p.projectName}
+                                            </h3>
+
+                                            <p class="text-xs text-slate-400">
+                                                <i class="fa-solid fa-location-dot mr-1"></i>
+                                                ${p.location}
+                                            </p>
+
+                                            <p class="text-xs text-slate-300">
+                                                <strong class="text-slate-200">Role:</strong>
+                                                ${p.role}
+                                            </p>
+
+                                            <p class="text-xs text-slate-400">
+                                                <strong class="text-slate-200">Impact:</strong>
+                                                ${p.insight}
+                                            </p>
+
                                         </div>
                                     </div>
                                 `;
+
                             });
+
                         }
+
                         else if (sec.type === 'table') {
-                            html += `<p class="text-xs text-slate-400">${sec.description}</p>
+
+                            html += `
+                                <p class="text-xs text-slate-400">
+                                    ${sec.description}
+                                </p>
+
                                 <div class="overflow-x-auto mt-2">
+
                                     <table class="w-full text-left text-xs text-slate-300 border-collapse">
+
                                         <thead>
-                                            <tr class="border-b border-slate-800 text-slate-400">`;
-                            sec.headers.forEach(h => html += `<th class="py-2 px-3 font-semibold">${h}</th>`);
+                                            <tr class="border-b border-slate-800 text-slate-400">
+                            `;
+
+                            sec.headers.forEach(h => {
+                                html += `
+                                    <th class="py-2 px-3 font-semibold">
+                                        ${h}
+                                    </th>
+                                `;
+                            });
+
                             html += `</tr></thead><tbody>`;
+
                             sec.rows.forEach(row => {
-                                html += `<tr class="border-b border-slate-800/50">`;
-                                row.forEach(cell => html += `<td class="py-2 px-3">${cell}</td>`);
+
+                                html += `
+                                    <tr class="border-b border-slate-800/50">
+                                `;
+
+                                row.forEach(cell => {
+
+                                    html += `
+                                        <td class="py-2 px-3">
+                                            ${cell}
+                                        </td>
+                                    `;
+
+                                });
+
                                 html += `</tr>`;
                             });
+
                             html += `</tbody></table></div>`;
+                        }
+
+                        /*
+                         * FEATURED VIDEOS
+                         * YouTube/Vimeo videos are represented by lightweight
+                         * thumbnail placeholders. The actual iframe loads only
+                         * when the visitor clicks the video.
+                         */
+
+                        else if (sec.type === 'videos') {
+
+                            sec.items.forEach(video => {
+
+                                const videoId = getYouTubeId(video.url);
+
+                                html += `
+                                    <div class="bg-slate-950/50 border border-slate-800/80 rounded-xl overflow-hidden mt-3">
+
+                                        <div class="relative aspect-video bg-black">
+
+                                            <button
+                                                onclick="loadYouTubeVideo(this, '${videoId}')"
+                                                class="absolute inset-0 w-full h-full group cursor-pointer"
+                                                aria-label="Play ${video.title}"
+                                            >
+
+                                                <img
+                                                    src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg"
+                                                    alt="${video.title}"
+                                                    loading="lazy"
+                                                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
+                                                >
+
+                                                <div class="absolute inset-0 flex items-center justify-center">
+
+                                                    <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/95 shadow-xl group-hover:scale-110 transition">
+
+                                                        <i class="fa-solid fa-play text-slate-950 ml-1"></i>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </button>
+
+                                        </div>
+
+                                        <div class="p-4">
+
+                                            <h3 class="font-bold text-slate-100 text-sm">
+                                                ${video.title}
+                                            </h3>
+
+                                            ${video.description ? `
+                                                <p class="text-xs text-slate-400 mt-1">
+                                                    ${video.description}
+                                                </p>
+                                            ` : ''}
+
+                                        </div>
+
+                                    </div>
+                                `;
+                            });
                         }
 
                         html += `</div>`;
@@ -117,66 +377,206 @@
                 }
 
                 html += `
+
                     <div class="space-y-3 pt-2 pb-2">
+
                         ${user.portfolioPdf ? `
-                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm" style="background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});">
-                                <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
+                            <a href="${user.portfolioPdf}"
+                               target="_blank"
+                               class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm"
+                               style="background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});">
+
+                                <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i>
+
+                                Download Complete Portfolio (PDF)
+
                             </a>
                         ` : ''}
-                        
-                        <button onclick="downloadVCard('${username}')" class="w-full flex items-center justify-center bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm">
-                            <i class="fa-solid fa-address-book mr-2 text-base" style="color: ${primaryColor};"></i> Save Contact to Phonebook
+
+                        <button
+                            onclick="downloadVCard('${username}')"
+                            class="w-full flex items-center justify-center bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-semibold py-3.5 px-4 rounded-xl shadow-lg transition text-sm">
+
+                            <i class="fa-solid fa-address-book mr-2 text-base"
+                               style="color: ${primaryColor};"></i>
+
+                            Save Contact to Phonebook
+
                         </button>
+
                     </div>
 
-                    <!-- Social Media Links Bar at the Bottom -->
                     ${user.socials ? `
+
                         <div class="flex justify-center items-center gap-3 pb-2">
-                            ${user.socials.linkedin ? `<a href="${user.socials.linkedin}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-sm"></i></a>` : ''}
-                            ${user.socials.facebook ? `<a href="${user.socials.facebook}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-facebook-f text-sm"></i></a>` : ''}
-                            ${user.socials.instagram ? `<a href="${user.socials.instagram}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-instagram text-sm"></i></a>` : ''}
-                            ${user.socials.tiktok ? `<a href="${user.socials.tiktok}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition"><i class="fa-brands fa-tiktok text-sm"></i></a>` : ''}
+
+                            ${user.socials.linkedin ? `
+                                <a href="${user.socials.linkedin}"
+                                   target="_blank"
+                                   class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition">
+
+                                    <i class="fa-brands fa-linkedin-in text-sm"></i>
+
+                                </a>
+                            ` : ''}
+
+                            ${user.socials.facebook ? `
+                                <a href="${user.socials.facebook}"
+                                   target="_blank"
+                                   class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition">
+
+                                    <i class="fa-brands fa-facebook-f text-sm"></i>
+
+                                </a>
+                            ` : ''}
+
+                            ${user.socials.instagram ? `
+                                <a href="${user.socials.instagram}"
+                                   target="_blank"
+                                   class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition">
+
+                                    <i class="fa-brands fa-instagram text-sm"></i>
+
+                                </a>
+                            ` : ''}
+
+                            ${user.socials.tiktok ? `
+                                <a href="${user.socials.tiktok}"
+                                   target="_blank"
+                                   class="w-10 h-10 flex items-center justify-center bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-full text-slate-300 hover:text-white transition">
+
+                                    <i class="fa-brands fa-tiktok text-sm"></i>
+
+                                </a>
+                            ` : ''}
+
                         </div>
+
                     ` : ''}
 
                     <div class="text-center text-xs text-slate-500 pb-4">
-                        Powered by Fortumore Global
+                        Powered By Fortumore
                     </div>
                 `;
 
                 container.innerHTML = html;
 
             } catch (err) {
+
                 console.error("Error loading card data:", err);
-                container.innerHTML = `<div class="text-center py-20 text-red-400 font-semibold bg-slate-900/50 border border-slate-800 rounded-2xl p-6">Oops! This profile encountered a loading error or syntax issue. Please check the JSON data file.</div>`;
+
+                container.innerHTML = `
+                    <div class="text-center py-20 text-red-400 font-semibold bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+                        Oops! This profile encountered a loading error or syntax issue.
+                        Please check the JSON data file.
+                    </div>
+                `;
             }
         }
 
-        // Platform share function: shares the individual client's exact card URL
+
+        /*
+         * Extract YouTube video ID from different YouTube URL formats.
+         */
+        function getYouTubeId(url) {
+
+            try {
+
+                const parsed = new URL(url);
+
+                if (parsed.hostname.includes('youtu.be')) {
+                    return parsed.pathname.substring(1);
+                }
+
+                if (parsed.hostname.includes('youtube.com')) {
+
+                    if (parsed.searchParams.get('v')) {
+                        return parsed.searchParams.get('v');
+                    }
+
+                    if (parsed.pathname.startsWith('/embed/')) {
+                        return parsed.pathname.split('/embed/')[1];
+                    }
+                }
+
+            } catch (error) {
+
+                console.error("Invalid YouTube URL:", url);
+
+            }
+
+            return '';
+        }
+
+
+        /*
+         * Load the actual YouTube iframe only after the visitor taps play.
+         */
+        function loadYouTubeVideo(button, videoId) {
+
+            if (!videoId) return;
+
+            const wrapper = button.parentElement;
+
+            const iframe = document.createElement('iframe');
+
+            iframe.className = 'absolute inset-0 w-full h-full';
+
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+            iframe.title = 'YouTube video player';
+
+            iframe.frameBorder = '0';
+
+            iframe.allow =
+                'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+            iframe.allowFullscreen = true;
+
+            wrapper.innerHTML = '';
+
+            wrapper.appendChild(iframe);
+        }
+
+
         async function sharePlatform() {
-            const currentUrl = window.location.href; // Grabs the full specific URL including the user parameter
+
+            const currentUrl = window.location.href;
 
             const shareData = {
-                title: 'Digital Business Card',
-                text: 'Check out this professional digital business card:',
+                title: 'Fortumore Elite',
+                text: 'Check out this professional profile:',
                 url: currentUrl
             };
 
             if (navigator.share) {
+
                 try {
+
                     await navigator.share(shareData);
+
                 } catch (err) {
+
                     console.log('Share canceled or failed', err);
+
                 }
+
             } else {
+
                 navigator.clipboard.writeText(currentUrl);
-                alert('Card link copied to clipboard!');
+
+                alert('Profile link copied to clipboard!');
+
             }
         }
 
+
         async function downloadVCard(username) {
+
             try {
-                const res = await fetch(`${API_BASE}/api/profile/${username}`);
+
+                const res = await fetch(`users/${username}.json`);
+
                 const u = await res.json();
 
                 const vcard = `BEGIN:VCARD
@@ -189,20 +589,37 @@ EMAIL:${u.email}
 NOTE:${u.tagline}
 END:VCARD`;
 
-                const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+                const blob = new Blob(
+                    [vcard],
+                    { type: 'text/vcard;charset=utf-8' }
+                );
+
                 const url = window.URL.createObjectURL(blob);
+
                 const a = document.createElement('a');
+
                 a.href = url;
+
                 a.download = `${u.name.replace(/\s+/g, '_')}.vcf`;
+
                 document.body.appendChild(a);
+
                 a.click();
+
                 document.body.removeChild(a);
+
             } catch (err) {
+
                 console.error("Error generating vCard:", err);
+
             }
         }
 
+
         loadCard();
+
     </script>
+
 </body>
 </html>
+```
