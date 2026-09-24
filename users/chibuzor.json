@@ -9,7 +9,7 @@
   "email": "fortumoregroup.ng@gmail.com",
   "mapUrl": "https://maps.google.com",
   "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
-  "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
+  "image": "images/gabriel.jpg.jpeg",
   "sections": [
     {
       "type": "about",
@@ -22,11 +22,23 @@
       "number": "02",
       "title": "Value Proposition",
       "description": "What I bring to the table:",
-      "headers": ["Service Area", "Business Impact"],
+      "headers": [
+        "Service Area",
+        "Business Impact"
+      ],
       "rows": [
-        ["Operational Efficiency", "Reducing manual tasks by 80%"],
-        ["Digital Transformation", "End-to-end custom SaaS stack"],
-        ["Strategic Growth", "Optimized lead routing & CRM"]
+        [
+          "Operational Efficiency",
+          "Reducing manual tasks by 80%"
+        ],
+        [
+          "Digital Transformation",
+          "End-to-end custom SaaS stack"
+        ],
+        [
+          "Strategic Growth",
+          "Optimized lead routing & CRM"
+        ]
       ]
     },
     {
@@ -36,24 +48,29 @@
       "groups": [
         {
           "category": "Workflow Automation",
-          "items": ["n8n & Google Apps Script", "API Integrations & Webhooks"]
+          "items": [
+            "n8n & Google Apps Script",
+            "API Integrations & Webhooks"
+          ]
         },
         {
           "category": "Digital Solutions",
-          "items": ["SaaS Architecture", "AppSheet & Database Systems"]
+          "items": [
+            "SaaS Architecture",
+            "AppSheet & Database Systems"
+          ]
         }
       ]
     },
     {
       "type": "projects",
       "number": "04",
-      "title": "Featured Projects & Demos",
+      "title": "Featured Projects",
       "items": [
         {
-          "projectName": "Fortumore Cards Platform",
+          "projectName": "Fortumore Cards",
           "location": "Abuja, Nigeria",
           "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
           "role": "Lead Architect",
           "insight": "Developed a high-performance, low-cost digital business card SaaS platform."
         },
@@ -61,9 +78,29 @@
           "projectName": "Restaurant Automation System",
           "location": "Abuja, Nigeria",
           "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
           "role": "Systems Engineer",
           "insight": "Built a seamless digital menu & automated order-routing system to streamline service."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "number": "05",
+      "title": "Featured Videos",
+      "items": [
+        {
+          "videoName": "n8n Workflow Automation Masterclass",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "duration": "14:25",
+          "description": "A deep dive into building enterprise-grade backend automation pipelines using n8n and Webhooks."
+        },
+        {
+          "videoName": "Cloudflare Workers & SaaS Scaling",
+          "platform": "Vimeo",
+          "url": "https://vimeo.com/148751717",
+          "duration": "08:40",
+          "description": "Showcasing high-speed edge computing patterns for modern digital applications."
         }
       ]
     }
