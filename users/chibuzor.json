@@ -1,5 +1,5 @@
 {
-  "name": "Chibuzor",
+  "name": "I.C GABRIEL",
   "title": "Automation Engineer & Tech Strategist",
   "company": "Fortumore Technologies",
   "location": "Abuja, Nigeria",
@@ -9,7 +9,7 @@
   "email": "fortumoregroup.ng@gmail.com",
   "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
   "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
-  "image": "images/chibuzor.jpg.jpeg",
+  "image": "images/gabriel.jpg.jpeg",
   "themeColor": "#3b82f6",
   "secondaryColor": "#6366f1",
   "sections": [
@@ -17,7 +17,7 @@
       "type": "about",
       "number": "01",
       "title": "About Me",
-      "content": "Chibuzor is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
+      "content": "Gabriel is an innovative automation engineer and digital creator specializing in low-code architecture, business process optimization, and custom software integrations."
     },
     {
       "type": "table",
