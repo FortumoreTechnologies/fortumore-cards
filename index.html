@@ -37,16 +37,16 @@
         }
         .floating-whatsapp {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 16px;
+            right: 16px;
             z-index: 50;
             animation: pulse-subtle 3s infinite ease-in-out;
-            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 6px 20px -4px rgba(34, 197, 94, 0.4);
             transition: all 0.3s ease;
         }
         .floating-whatsapp:hover {
-            transform: scale(1.08);
-            box-shadow: 0 15px 30px -5px rgba(34, 197, 94, 0.6);
+            transform: scale(1.06);
+            box-shadow: 0 10px 25px -4px rgba(34, 197, 94, 0.6);
         }
     </style>
 </head>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <!-- Persistent Floating WhatsApp Widget Container -->
+    <!-- Persistent Tiny Floating WhatsApp Widget Container -->
     <div id="floating-whatsapp-container"></div>
 
     <script>
@@ -83,7 +83,7 @@
             "email": "fortumoregroup.ng@gmail.com",
             "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
             "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
-            "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+            "image": "images/gabriel.jpg",
             "themeColor": "#3b82f6",
             "secondaryColor": "#6366f1",
             "sections": [],
@@ -111,18 +111,18 @@
                 const primaryColor = user.themeColor || '#3b82f6';
                 const secondaryColor = user.secondaryColor || '#6366f1';
 
-                // Render Floating WhatsApp Widget dynamically based on loaded user details
+                // Render tiny, compact floating WhatsApp widget
                 if (user.whatsapp) {
                     const encodedMsg = encodeURIComponent(`Hello ${user.name}, I found your digital card and would like to connect!`);
                     whatsappContainer.innerHTML = `
                         <a href="https://wa.me/${user.whatsapp}?text=${encodedMsg}" 
                            target="_blank" 
-                           class="floating-whatsapp flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-3 rounded-full font-medium text-xs md:text-sm backdrop-blur-md border border-emerald-400/30 cursor-pointer shadow-2xl">
+                           class="floating-whatsapp flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-full font-medium text-xs backdrop-blur-md border border-emerald-400/30 cursor-pointer shadow-xl">
                             <div class="relative flex items-center justify-center">
-                                <span class="absolute w-3 h-3 bg-white rounded-full animate-ping opacity-75"></span>
-                                <i class="fa-brands fa-whatsapp text-xl text-white relative"></i>
+                                <span class="absolute w-2.5 h-2.5 bg-white rounded-full animate-ping opacity-75"></span>
+                                <i class="fa-brands fa-whatsapp text-base text-white relative"></i>
                             </div>
-                            <span class="font-semibold tracking-wide">Chat on WhatsApp</span>
+                            <span class="font-medium tracking-tight pr-0.5">Chat</span>
                         </a>
                     `;
                 }
@@ -132,7 +132,7 @@
                         <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
                         <div class="relative w-28 h-28 mx-auto mb-4 mt-2">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[${primaryColor}] to-[${secondaryColor}] animate-pulse opacity-75"></div>
-                            <img src="${user.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb'}" alt="${user.name}" class="relative w-full h-full object-cover rounded-full border-2 border-slate-700 shadow-md">
+                            <img src="${user.image || 'images/gabriel.jpg'}" alt="${user.name}" class="relative w-full h-full object-cover rounded-full border-2 border-slate-700 shadow-md" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'">
                         </div>
                         <h1 class="text-2xl font-bold tracking-tight text-white flex items-center justify-center gap-1.5">
                             ${user.name} 
