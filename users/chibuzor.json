@@ -84,25 +84,21 @@
       ]
     },
     {
-      "type": "videos",
+      "type": "projects",
       "number": "05",
       "title": "Featured Videos",
       "items": [
         {
           "projectName": "n8n Workflow Automation Masterclass",
-          "location": "YouTube",
+          "location": "YouTube (14:25)",
           "image": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "time": "14:25",
           "role": "Creator & Host",
           "insight": "A deep dive into building enterprise-grade backend automation pipelines using n8n and Webhooks."
         },
         {
           "projectName": "Cloudflare Workers & SaaS Scaling",
-          "location": "Vimeo",
+          "location": "Vimeo (08:40)",
           "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe",
-          "videoUrl": "https://player.vimeo.com/video/148751717",
-          "time": "08:40",
           "role": "Lead Presenter",
           "insight": "Showcasing high-speed edge computing patterns for modern digital applications."
         }
