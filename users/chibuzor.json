@@ -1,67 +1,67 @@
 {
-  "name": "I.C GABRIEL",
-  "title": "Automation Engineer & Tech Strategist",
-  "company": "Fortumore Technologies",
+  "name": "I.C. GABRIEL",
+  "title": "Luxury Real Estate Advisor & First-Time Home Specialist",
+  "company": "Veritas Luxury Homes",
   "location": "Abuja, Nigeria",
-  "tagline": "Building scalable workflow automations, SaaS solutions, and digital systems across Africa.",
+  "tagline": "Turning first-time dreams into prestigious addresses with unmatched elegance and bespoke guidance.",
   "phone": "+2348107728594",
   "whatsapp": "2348107728594",
   "email": "fortumoregroup.ng@gmail.com",
   "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
-  "portfolioPdf": "https://example.com/gabriel-portfolio.pdf",
+  "portfolioPdf": "https://example.com/veritas-luxury-portfolio.pdf",
   "image": "images/gabriel.jpg.jpeg",
-  "themeColor": "#3b82f6",
-  "secondaryColor": "#6366f1",
+  "themeColor": "#0f172a",
+  "secondaryColor": "#d4af37",
   "sections": [
     {
       "type": "about",
       "number": "01",
-      "title": "About Me",
-      "content": "Gabriel is an innovative automation engineer and tech strategist specializing in low-code/pro-code architecture, business process optimization, and high-performance system integrations."
+      "title": "The Veritas Standard",
+      "content": "Gabriel is a premier Abuja-based real estate strategist dedicated to simplifying homeownership for first-time buyers. Combining unmatched market insight, uncompromising integrity, and a passion for architectural elegance, every client journey is transformed into a seamless path toward elite asset ownership."
     },
     {
       "type": "table",
       "number": "02",
-      "title": "Value Proposition",
-      "description": "What I bring to the table:",
+      "title": "Client Value Proposition",
+      "description": "Why first-time buyers and investors trust Veritas Luxury Homes:",
       "headers": [
-        "Service Area",
-        "Business Impact"
+        "Service Pillar",
+        "Client Advantage"
       ],
       "rows": [
         [
-          "Operational Efficiency",
-          "Automating repetitive workflows & reducing manual tasks by 80%"
+          "First-Time Buyer Guidance",
+          "Step-by-step advisory from property selection to closing, title perfection, and key handover."
         ],
         [
-          "Digital Transformation",
-          "End-to-end custom SaaS stacks & edge deployments"
+          "Curated Affordability",
+          "Handpicked luxury developments optimized for high capital appreciation and accessible payment plans."
         ],
         [
-          "Strategic Growth",
-          "Optimized lead routing, CRM integrations, and payment gateways"
+          "Transparent Verification",
+          "Rigorous legal and structural due diligence ensuring 100% secure property investments in Abuja."
         ]
       ]
     },
     {
       "type": "expertise",
       "number": "03",
-      "title": "Core Expertise",
+      "title": "Areas of Specialization",
       "groups": [
         {
-          "category": "Workflow Automation & APIs",
+          "category": "Property & Investment Advisory",
           "items": [
-            "n8n Pipeline Architecture",
-            "Evolution API & Webhooks",
-            "Python Backend Logic"
+            "First-Time Homebuyer Consultation",
+            "Off-Plan & Mortgaged Developments",
+            "High-Yield Real Estate Portfolios"
           ]
         },
         {
-          "category": "Cloud Infrastructure & SaaS",
+          "category": "Client Services & Assurance",
           "items": [
-            "Cloudflare Workers & Edge Computing",
-            "Railway Deployments",
-            "Paystack Payment Integrations"
+            "Title & Land Document Verification",
+            "Flexible Payment Structure Engineering",
+            "Exclusive Private Property Tours"
           ]
         }
       ]
@@ -69,42 +69,129 @@
     {
       "type": "projects",
       "number": "04",
-      "title": "Featured Projects",
+      "title": "Exclusive Listings & Featured Properties",
       "items": [
         {
-          "projectName": "Fortumore Digital Cards",
-          "location": "Abuja, Nigeria",
-          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-          "role": "Lead Architect",
-          "insight": "Developed a high-performance digital business card SaaS platform with multi-tenant profile management."
+          "projectName": "The Solace Terraces (3-Bed Luxury Unit)",
+          "location": "Jabi, Abuja",
+          "price": "₦145,000,000",
+          "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+          "role": "Exclusive Listing",
+          "insight": "An architectural masterpiece designed for first-time homeowners seeking modern comfort, smart home fittings, 24/7 security, and flexible installment plans.",
+          "chatButton": "https://wa.me/2348107728594?text=Hello%20Gabriel,%20I%20am%20interested%20in%20The%20Solace%20Terraces%20listing."
         },
         {
-          "projectName": "Automated Restaurant Ordering System",
-          "location": "Abuja, Nigeria",
-          "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9",
-          "role": "Systems Engineer",
-          "insight": "Built robust Cloudflare Worker applications and database handlers for digital restaurant menus and automated ordering."
+          "projectName": "Aura Heights Apartment (2-Bed Executive Suite)",
+          "location": "Utako, Abuja",
+          "price": "₦95,000,000",
+          "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00",
+          "role": "Exclusive Listing",
+          "insight": "Exquisite high-rise living tailored for young professionals and smart investors. Features panoramic city views, rooftop pool, and seamless access to central business hubs.",
+          "chatButton": "https://wa.me/2348107728594?text=Hello%20Gabriel,%20I%20am%20interested%20in%20Aura%20Heights%20Apartment."
+        },
+        {
+          "projectName": "Verdant Ville Duplex (4-Bed Contemporary Home)",
+          "location": "Gwarimpa, Abuja",
+          "price": "₦180,000,000",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+          "role": "Exclusive Listing",
+          "insight": "Spacious family residence offering fully fitted kitchens, stamped concrete courtyard, ample parking, and a serene neighborhood ambiance with verified C of O.",
+          "chatButton": "https://wa.me/2348107728594?text=Hello%20Gabriel,%20I%20am%20interested%20in%20Verdant%20Ville%20Duplex."
+        },
+        {
+          "projectName": "Horizon Crest Smart Homes (3-Bed Maisonette)",
+          "location": "Katampe Extension, Abuja",
+          "price": "₦160,000,000",
+          "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+          "role": "Exclusive Listing",
+          "insight": "Hilltop luxury meets affordability. Enjoy breathtaking views of Abuja skyline, automated lighting, biometric entry, and top-tier security infrastructure.",
+          "chatButton": "https://wa.me/2348107728594?text=Hello%20Gabriel,%20I%20am%20interested%20in%20Horizon%20Crest%20Smart%20Homes."
+        },
+        {
+          "projectName": "Emerald Court Villas (2-Bed Starter Villa)",
+          "location": "Lugbe, Abuja",
+          "price": "₦65,000,000",
+          "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+          "role": "Exclusive Listing",
+          "insight": "The ultimate gateway for first-time buyers. Impeccably finished cozy villas with gated community access, constant power supply, and flexible mortgage options.",
+          "chatButton": "https://wa.me/2348107728594?text=Hello%20Gabriel,%20I%20am%20interested%20in%20Emerald%20Court%20Villas."
         }
       ]
     },
     {
       "type": "videos",
       "number": "05",
-      "title": "Featured Videos",
+      "title": "Property Tours & Homebuyer Insights",
       "items": [
         {
-          "videoName": "n8n Workflow Automation Masterclass",
+          "videoName": "Inside The Solace Terraces: Luxury Home Tour",
           "platform": "YouTube",
-          "duration": "14:25",
+          "duration": "05:12",
           "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "A deep dive into building enterprise-grade backend automation pipelines using n8n and Webhooks."
+          "description": "Take an exclusive walkthrough of our flagship 3-bedroom luxury terrace in Jabi, Abuja."
         },
         {
-          "videoName": "Cloudflare Workers & SaaS Scaling",
-          "platform": "Vimeo",
-          "duration": "08:40",
-          "videoUrl": "https://player.vimeo.com/video/148751717",
-          "description": "Showcasing high-speed edge computing patterns for modern digital applications."
+          "videoName": "First-Time Homebuyer's Guide to Abuja Real Estate",
+          "platform": "YouTube",
+          "duration": "08:45",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Essential steps, hidden costs, and verification secrets every first-time buyer needs to know."
+        },
+        {
+          "videoName": "Aura Heights Executive Suite Walkthrough",
+          "platform": "YouTube",
+          "duration": "04:30",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Discover high-rise luxury living in the heart of Utako with modern interior styling."
+        },
+        {
+          "videoName": "Verdant Ville Duplex: Family Living Redefined",
+          "platform": "YouTube",
+          "duration": "06:15",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "A detailed showcase of space, security, and refined finishing in Gwarimpa."
+        },
+        {
+          "videoName": "Katampe Extension: Hilltop Living & Investment Potential",
+          "platform": "YouTube",
+          "duration": "07:20",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Why Horizon Crest smart homes offer unmatched capital appreciation in Abuja."
+        },
+        {
+          "videoName": "Lugbe Starter Villas: Unlocking Affordable Luxury",
+          "platform": "YouTube",
+          "duration": "05:50",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Breaking down flexible payment plans and gated community perks at Emerald Court."
+        },
+        {
+          "videoName": "Understanding Land Titles & C of O in Abuja",
+          "platform": "YouTube",
+          "duration": "10:05",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Protect your investment by learning how to verify genuine property documentation."
+        },
+        {
+          "videoName": "How to Secure Your First Home with Ease",
+          "platform": "YouTube",
+          "duration": "06:40",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Expert tips on budgeting, mortgage planning, and closing deals seamlessly."
+        },
+        {
+          "videoName": "Luxury Interior Design Trends for Modern Homes",
+          "platform": "YouTube",
+          "duration": "04:55",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Transform your new property into an opulent sanctuary with these expert styling tips."
+        },
+        {
+          "videoName": "Why Abuja is the Ultimate Real Estate Investment Hub",
+          "platform": "YouTube",
+          "duration": "09:10",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "description": "Macro-economic insights and growth corridors shaping the future of Nigerian real estate."
         }
       ]
     }
