@@ -49,24 +49,28 @@
         .action-glow {
             animation: button-glow 3s infinite ease-in-out;
         }
+        @keyframes whatsapp-pop {
+            0%, 100% { box-shadow: 0 4px 15px -3px rgba(37, 211, 102, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.25); }
+            50% { box-shadow: 0 6px 20px -2px rgba(37, 211, 102, 0.65), 0 0 8px rgba(255, 255, 255, 0.4); }
+        }
         .floating-whatsapp {
             position: fixed;
-            bottom: 14px;
-            right: 14px;
+            bottom: 16px;
+            right: 16px;
             z-index: 50;
-            animation: pulse-subtle 3s infinite ease-in-out;
-            box-shadow: 0 4px 15px -3px rgba(34, 197, 94, 0.35);
+            background-color: #25D366;
+            animation: pulse-subtle 3s infinite ease-in-out, whatsapp-pop 3s infinite ease-in-out;
             transition: all 0.3s ease;
         }
         .floating-whatsapp:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px -3px rgba(34, 197, 94, 0.55);
+            transform: scale(1.06);
+            box-shadow: 0 8px 25px -2px rgba(37, 211, 102, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
         }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-4 selection:bg-blue-500 selection:text-white">
 
-    <div id="card-container" class="w-full max-w-md space-y-6">
+    <div id="card-container" class="w-full max-w-md space-y-6 pb-20">
         <!-- Premium Loading Animation State -->
         <div class="text-center py-24 space-y-4 bg-slate-900/40 border border-slate-800/80 rounded-3xl backdrop-blur-xl shadow-2xl">
             <div class="relative w-16 h-16 mx-auto">
@@ -124,13 +128,13 @@
                 const primaryColor = user.themeColor || '#3b82f6';
                 const secondaryColor = user.secondaryColor || '#6366f1';
 
-                // Render ultra-minimalist, compact floating WhatsApp widget
+                // Render refined minimalist floating WhatsApp widget with official #25D366 color & light border/glow
                 if (user.whatsapp) {
                     const encodedMsg = encodeURIComponent(`Interesting ${user.name}, am impressed when do we begin?`);
                     whatsappContainer.innerHTML = `
                         <a href="https://wa.me/${user.whatsapp}?text=${encodedMsg}" 
                            target="_blank" 
-                           class="floating-whatsapp flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-full font-medium text-[11px] backdrop-blur-md border border-emerald-400/30 cursor-pointer shadow-lg">
+                           class="floating-whatsapp flex items-center gap-1.5 hover:bg-[#22bf5b] text-white px-3 py-1.5 rounded-full font-medium text-[11px] backdrop-blur-md border border-white/40 cursor-pointer shadow-lg">
                             <div class="relative flex items-center justify-center">
                                 <span class="absolute w-2 h-2 bg-white rounded-full animate-ping opacity-75"></span>
                                 <i class="fa-brands fa-whatsapp text-sm text-white relative"></i>
