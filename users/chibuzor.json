@@ -11,7 +11,7 @@
   "portfolioPdf": "https://example.com/veritas-luxury-portfolio.pdf",
   "image": "images/mine.jpeg",
   "themeColor": "#f8f6f0",
-  "secondaryColor": "#b8860b",
+  "secondaryColor": "#2563eb",
   "sections": [
     {
       "type": "about",
@@ -121,42 +121,42 @@
     {
       "type": "videos",
       "number": "05",
-      "title": "Luxury Real Estate Tours & Walkthroughs",
+      "title": "Nigerian Real Estate Tours & Walkthroughs",
       "items": [
         {
-          "videoName": "Modern Luxury Villa Architectural Walkthrough",
+          "videoName": "Touring Nigeria's 1st Smart Estate's Luxury Duplex in Abuja",
           "platform": "YouTube",
-          "duration": "04:15",
-          "videoUrl": "https://www.youtube.com/embed/wXh5Slg_gjk",
-          "description": "An immersive walkthrough of a pristine modern architectural home featuring elite interior design and open spaces."
+          "duration": "15:20",
+          "videoUrl": "https://www.youtube.com/embed/M1lQLCsBL0g",
+          "description": "An exclusive walkthrough exploring high-end smart homes and elite luxury estate architecture in Abuja by Steven Ndukwu."
         },
         {
-          "videoName": "High-End Contemporary Duplex Tour",
+          "videoName": "Inside Abuja Most Luxurious Estate for the Super Rich",
           "platform": "YouTube",
-          "duration": "05:30",
-          "videoUrl": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
-          "description": "Detailed presentation of a luxury property showcasing high-end finishes, bespoke lighting, and contemporary living."
+          "duration": "12:45",
+          "videoUrl": "https://www.youtube.com/embed/4p4YbiVMlBE",
+          "description": "A detailed tour showcasing elite residential architecture and high-end property features within top-tier Abuja neighborhoods."
         },
         {
-          "videoName": "Exclusive Penthouse & City View Showcase",
+          "videoName": "House Tour: The Most Timeless Home in Abuja Nigeria",
           "platform": "YouTube",
-          "duration": "03:45",
-          "videoUrl": "https://www.youtube.com/embed/tgbNymZ7vqY",
-          "description": "A breathtaking tour highlighting executive high-rise living, balcony views, and refined luxury aesthetics."
+          "duration": "10:10",
+          "videoUrl": "https://www.youtube.com/embed/8mi4f1XO9fo",
+          "description": "A stunning visual walkthrough highlighting luxury interior design and magnificent million-dollar mansion architecture in Abuja."
         },
         {
-          "videoName": "Luxury Gated Community Family Home Tour",
+          "videoName": "Touring a Mansion in Abuja's Most Expensive Neighbourhood",
           "platform": "YouTube",
-          "duration": "06:20",
-          "videoUrl": "https://www.youtube.com/embed/kJQP7kiw5Fk",
-          "description": "Explore a secure, family-oriented upscale residence featuring spacious compounds and modern kitchen fittings."
+          "duration": "14:30",
+          "videoUrl": "https://www.youtube.com/embed/sm84I-aI0eo",
+          "description": "An in-depth look at upscale multi-million dollar property listings featuring premium finishing and modern amenities."
         },
         {
-          "videoName": "Smart Home & Estate Architectural Preview",
+          "videoName": "Inside A 5 Million Dollar Ultra Modern Luxury House in Banana Island",
           "platform": "YouTube",
-          "duration": "05:00",
-          "videoUrl": "https://www.youtube.com/embed/YQHsXMglC9A",
-          "description": "A close look at automated living spaces, energy-efficient solutions, and premium estate infrastructure."
+          "duration": "11:05",
+          "videoUrl": "https://www.youtube.com/embed/NfIFeZ2nPWI",
+          "description": "An exclusive architectural showcase highlighting elite contemporary luxury home design in Lagos, Nigeria."
         }
       ]
     }
