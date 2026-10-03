@@ -142,21 +142,21 @@
                         <p class="text-slate-400 text-xs mt-1 flex items-center justify-center gap-1"><i class="fa-solid fa-location-dot"></i>${user.location}</p>
                         <p class="text-slate-300 text-sm mt-3 leading-relaxed px-2">${user.tagline}</p>
                         
-                        <!-- Top Action Grid -->
+                        <!-- Top Action Grid with Micro-Interactions -->
                         <div class="grid grid-cols-5 gap-2 mt-6">
-                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition border border-slate-700/50 text-[11px] font-medium text-slate-200 group">
+                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
                                 <i class="fa-solid fa-phone text-sm mb-1 group-hover:scale-110 transition-transform" style="color: ${primaryColor};"></i> Call
                             </a>
-                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition border border-slate-700/50 text-[11px] font-medium text-slate-200 group">
+                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
                                 <i class="fa-brands fa-whatsapp text-green-400 text-sm mb-1 group-hover:scale-110 transition-transform"></i> WhatsApp
                             </a>
-                            <a href="mailto:${user.email}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition border border-slate-700/50 text-[11px] font-medium text-slate-200 group">
+                            <a href="mailto:${user.email}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
                                 <i class="fa-solid fa-envelope text-sm mb-1 group-hover:scale-110 transition-transform" style="color: ${secondaryColor};"></i> Email
                             </a>
-                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition border border-slate-700/50 text-[11px] font-medium text-slate-200 group">
+                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
                                 <i class="fa-solid fa-map-location-dot text-amber-400 text-sm mb-1 group-hover:scale-110 transition-transform"></i> Map
                             </a>
-                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition border border-slate-700/50 text-[11px] font-medium text-slate-200 cursor-pointer group">
+                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 cursor-pointer group">
                                 <i class="fa-solid fa-share-nodes text-sm mb-1 group-hover:scale-110 transition-transform" style="color: ${primaryColor};"></i> Share
                             </button>
                         </div>
@@ -248,11 +248,11 @@
                 html += `
                     <div class="space-y-3 pt-2 pb-2">
                         ${user.portfolioPdf ? `
-                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition text-sm hover:opacity-90 transform hover:-translate-y-0.5" style="background: linear-gradient(to right, ${primaryColor},${secondaryColor});">
+                            <a href="${user.portfolioPdf}" target="_blank" class="w-full flex items-center justify-center text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 active:scale-95 hover:shadow-blue-500/25 text-sm" style="background: linear-gradient(to right, ${primaryColor},${secondaryColor});">
                                 <i class="fa-solid fa-file-arrow-down mr-2 text-base"></i> Download Complete Portfolio (PDF)
                             </a>
                         ` : ''}
-                        <button onclick="downloadVCard('${username}')" class="w-full flex items-center justify-center bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition text-sm cursor-pointer">
+                        <button onclick="downloadVCard('${username}')" class="w-full flex items-center justify-center bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-semibold py-3.5 px-4 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 active:scale-95 hover:border-slate-500 text-sm cursor-pointer">
                             <i class="fa-solid fa-address-book mr-2 text-base" style="color: ${primaryColor};"></i> Save Contact to Phonebook
                         </button>
                     </div>
