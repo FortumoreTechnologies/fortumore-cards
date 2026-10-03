@@ -1,4 +1,6 @@
 {
+  "themeColor": "#3b82f6",
+  "secondaryColor": "#3b82f6",
   "name": "Igbokwe Gabriel",
   "title": "Luxury Real Estate Advisor & First-Time Home Specialist",
   "company": "Veritas Luxury Homes",
@@ -10,18 +12,58 @@
   "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
   "portfolioPdf": "https://example.com/veritas-luxury-portfolio.pdf",
   "image": "images/mine.jpeg",
-  "themeColor": "#0b0f19",
-  "secondaryColor": "#3b82f6",
   "sections": [
     {
-      "type": "about",
+      "type": "videos",
       "number": "01",
+      "title": "Nigerian Real Estate Tours & Walkthroughs",
+      "items": [
+        {
+          "videoName": "Touring Nigeria's 1st Smart Estate's Luxury Duplex in Abuja",
+          "platform": "YouTube",
+          "duration": "15:20",
+          "videoUrl": "https://www.youtube.com/embed/M1lQLCsBL0g",
+          "description": "An exclusive walkthrough exploring high-end smart homes and elite luxury estate architecture in Abuja by Steven Ndukwu."
+        },
+        {
+          "videoName": "Inside Abuja Most Luxurious Estate for the Super Rich",
+          "platform": "YouTube",
+          "duration": "12:45",
+          "videoUrl": "https://www.youtube.com/embed/4p4YbiVMlBE",
+          "description": "A detailed tour showcasing elite residential architecture and high-end property features within top-tier Abuja neighborhoods."
+        },
+        {
+          "videoName": "House Tour: The Most Timeless Home in Abuja Nigeria",
+          "platform": "YouTube",
+          "duration": "10:10",
+          "videoUrl": "https://www.youtube.com/embed/8mi4f1XO9fo",
+          "description": "A stunning visual walkthrough highlighting luxury interior design and magnificent million-dollar mansion architecture in Abuja."
+        },
+        {
+          "videoName": "Touring a Mansion in Abuja's Most Expensive Neighbourhood",
+          "platform": "YouTube",
+          "duration": "14:30",
+          "videoUrl": "https://www.youtube.com/embed/sm84I-aI0eo",
+          "description": "An in-depth look at upscale multi-million dollar property listings featuring premium finishing and modern amenities."
+        },
+        {
+          "videoName": "Inside A 5 Million Dollar Ultra Modern Luxury House in Banana Island",
+          "platform": "YouTube",
+          "duration": "11:05",
+          "videoUrl": "https://www.youtube.com/embed/NfIFeZ2nPWI",
+          "description": "An exclusive architectural showcase highlighting elite contemporary luxury home design in Lagos, Nigeria."
+        }
+      ]
+    },
+    {
+      "type": "about",
+      "number": "02",
       "title": "The Veritas Standard",
       "content": "Chibuzor is a premier Abuja-based real estate strategist dedicated to simplifying homeownership for first-time buyers. Combining unmatched market insight, uncompromising integrity, and a passion for architectural elegance, every client journey is transformed into a seamless path toward elite asset ownership."
     },
     {
       "type": "table",
-      "number": "02",
+      "number": "03",
       "title": "Client Value Proposition",
       "description": "Why first-time buyers and investors trust Veritas Luxury Homes:",
       "headers": [
@@ -45,7 +87,7 @@
     },
     {
       "type": "expertise",
-      "number": "03",
+      "number": "04",
       "title": "Areas of Specialization",
       "groups": [
         {
@@ -68,7 +110,7 @@
     },
     {
       "type": "projects",
-      "number": "04",
+      "number": "05",
       "title": "Exclusive Listings & Featured Properties",
       "items": [
         {
@@ -115,48 +157,6 @@
           "role": "Exclusive Listing",
           "insight": "The ultimate gateway for first-time buyers. Impeccably finished cozy villas with gated community access, constant power supply, and flexible mortgage options.",
           "chatButton": "https://wa.me/2348107728594?text=Hello%20Chibuzor,%20I%20am%20interested%20in%20Emerald%20Court%20Villas."
-        }
-      ]
-    },
-    {
-      "type": "videos",
-      "number": "05",
-      "title": "Nigerian Real Estate Tours & Walkthroughs",
-      "items": [
-        {
-          "videoName": "Touring Nigeria's 1st Smart Estate's Luxury Duplex in Abuja",
-          "platform": "YouTube",
-          "duration": "15:20",
-          "videoUrl": "https://www.youtube.com/embed/M1lQLCsBL0g",
-          "description": "An exclusive walkthrough exploring high-end smart homes and elite luxury estate architecture in Abuja by Steven Ndukwu."
-        },
-        {
-          "videoName": "Inside Abuja Most Luxurious Estate for the Super Rich",
-          "platform": "YouTube",
-          "duration": "12:45",
-          "videoUrl": "https://www.youtube.com/embed/4p4YbiVMlBE",
-          "description": "A detailed tour showcasing elite residential architecture and high-end property features within top-tier Abuja neighborhoods."
-        },
-        {
-          "videoName": "House Tour: The Most Timeless Home in Abuja Nigeria",
-          "platform": "YouTube",
-          "duration": "10:10",
-          "videoUrl": "https://www.youtube.com/embed/8mi4f1XO9fo",
-          "description": "A stunning visual walkthrough highlighting luxury interior design and magnificent million-dollar mansion architecture in Abuja."
-        },
-        {
-          "videoName": "Touring a Mansion in Abuja's Most Expensive Neighbourhood",
-          "platform": "YouTube",
-          "duration": "14:30",
-          "videoUrl": "https://www.youtube.com/embed/sm84I-aI0eo",
-          "description": "An in-depth look at upscale multi-million dollar property listings featuring premium finishing and modern amenities."
-        },
-        {
-          "videoName": "Inside A 5 Million Dollar Ultra Modern Luxury House in Banana Island",
-          "platform": "YouTube",
-          "duration": "11:05",
-          "videoUrl": "https://www.youtube.com/embed/NfIFeZ2nPWI",
-          "description": "An exclusive architectural showcase highlighting elite contemporary luxury home design in Lagos, Nigeria."
         }
       ]
     }
