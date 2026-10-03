@@ -10,8 +10,8 @@
   "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
   "portfolioPdf": "https://example.com/veritas-luxury-portfolio.pdf",
   "image": "images/mine.jpeg",
-  "themeColor": "#f8f6f0",
-  "secondaryColor": "#2563eb",
+  "themeColor": "#0b0f19",
+  "secondaryColor": "#D4AF37",
   "sections": [
     {
       "type": "about",
