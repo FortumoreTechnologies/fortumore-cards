@@ -35,6 +35,13 @@
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.05); opacity: 0.95; }
         }
+        @keyframes glow-pulse {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.4)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8)); transform: scale(1.08); }
+        }
+        .verified-glow {
+            animation: glow-pulse 2.5s infinite ease-in-out;
+        }
         .floating-whatsapp {
             position: fixed;
             bottom: 16px;
@@ -136,28 +143,25 @@
                         </div>
                         <h1 class="text-2xl font-bold tracking-tight text-white flex items-center justify-center gap-1.5">
                             ${user.name} 
-                            <i class="fa-solid fa-circle-check text-sm" style="color: ${primaryColor};" title="Verified Professional"></i>
+                            <i class="fa-solid fa-circle-check text-sm verified-glow" style="color: ${primaryColor};" title="Verified Professional"></i>
                         </h1>
                         <p class="font-medium text-sm mt-1" style="color: ${primaryColor};">${user.title} ${user.company ? '• ' + user.company : ''}</p>
                         <p class="text-slate-400 text-xs mt-1 flex items-center justify-center gap-1"><i class="fa-solid fa-location-dot"></i>${user.location}</p>
                         <p class="text-slate-300 text-sm mt-3 leading-relaxed px-2">${user.tagline}</p>
                         
-                        <!-- Top Action Grid with Micro-Interactions -->
-                        <div class="grid grid-cols-5 gap-2 mt-6">
-                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
-                                <i class="fa-solid fa-phone text-sm mb-1 group-hover:scale-110 transition-transform" style="color: ${primaryColor};"></i> Call
+                        <!-- Top Action Grid (4 Buttons) with Micro-Interactions -->
+                        <div class="grid grid-cols-4 gap-2.5 mt-6">
+                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-xs font-medium text-slate-200 group">
+                                <i class="fa-solid fa-phone text-base mb-1.5 group-hover:scale-110 transition-transform" style="color: ${primaryColor};"></i> Call
                             </a>
-                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
-                                <i class="fa-brands fa-whatsapp text-green-400 text-sm mb-1 group-hover:scale-110 transition-transform"></i> WhatsApp
+                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-xs font-medium text-slate-200 group">
+                                <i class="fa-brands fa-whatsapp text-green-400 text-base mb-1.5 group-hover:scale-110 transition-transform"></i> WhatsApp
                             </a>
-                            <a href="mailto:${user.email}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
-                                <i class="fa-solid fa-envelope text-sm mb-1 group-hover:scale-110 transition-transform" style="color: ${secondaryColor};"></i> Email
+                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-xs font-medium text-slate-200 group">
+                                <i class="fa-solid fa-map-location-dot text-amber-400 text-base mb-1.5 group-hover:scale-110 transition-transform"></i> Map
                             </a>
-                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 group">
-                                <i class="fa-solid fa-map-location-dot text-amber-400 text-sm mb-1 group-hover:scale-110 transition-transform"></i> Map
-                            </a>
-                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-2.5 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-[11px] font-medium text-slate-200 cursor-pointer group">
-                                <i class="fa-solid fa-share-nodes text-sm mb-1 group-hover:scale-110 transition-transform" style="color: ${primaryColor};"></i> Share
+                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-slate-700/50 hover:border-slate-600 hover:shadow-lg text-xs font-medium text-slate-200 cursor-pointer group">
+                                <i class="fa-solid fa-share-nodes text-base mb-1.5 group-hover:scale-110 transition-transform" style="color: ${secondaryColor};"></i> Share
                             </button>
                         </div>
                     </div>
