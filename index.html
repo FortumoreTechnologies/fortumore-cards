@@ -36,15 +36,15 @@
             50% { transform: scale(1.05); opacity: 0.95; }
         }
         @keyframes glow-pulse {
-            0%, 100% { filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.4)); transform: scale(1); }
-            50% { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8)); transform: scale(1.08); }
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.3)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.6)); transform: scale(1.06); }
         }
         .verified-glow {
             animation: glow-pulse 2.5s infinite ease-in-out;
         }
         @keyframes button-glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2), inset 0 0 5px rgba(59, 130, 246, 0.1); }
-            50% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), inset 0 0 10px rgba(59, 130, 246, 0.3); }
+            0%, 100% { box-shadow: 0 0 3px rgba(59, 130, 246, 0.1), inset 0 0 3px rgba(59, 130, 246, 0.05); }
+            50% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.25), inset 0 0 5px rgba(59, 130, 246, 0.15); }
         }
         .action-glow {
             animation: button-glow 3s infinite ease-in-out;
@@ -155,18 +155,18 @@
                         <p class="text-slate-400 text-xs mt-1 flex items-center justify-center gap-1"><i class="fa-solid fa-location-dot"></i>${user.location}</p>
                         <p class="text-slate-300 text-sm mt-3 leading-relaxed px-2">${user.tagline}</p>
                         
-                        <!-- Top Action Grid (4 Glowing Buttons) -->
+                        <!-- Top Action Grid (4 Action Buttons) -->
                         <div class="grid grid-cols-4 gap-2.5 mt-6">
-                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/40 action-glow text-xs font-medium text-slate-200 group">
+                            <a href="tel:${user.phone}" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/30 action-glow text-xs font-medium text-slate-200 group">
                                 <i class="fa-solid fa-phone text-base mb-1.5 group-hover:scale-110 transition-transform" style="color: ${primaryColor};"></i> Call
                             </a>
-                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/40 action-glow text-xs font-medium text-slate-200 group">
+                            <a href="https://wa.me/${user.whatsapp}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/30 action-glow text-xs font-medium text-slate-200 group">
                                 <i class="fa-brands fa-whatsapp text-green-400 text-base mb-1.5 group-hover:scale-110 transition-transform"></i> WhatsApp
                             </a>
-                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/40 action-glow text-xs font-medium text-slate-200 group">
+                            <a href="${user.mapUrl}" target="_blank" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/30 action-glow text-xs font-medium text-slate-200 group">
                                 <i class="fa-solid fa-map-location-dot text-amber-400 text-base mb-1.5 group-hover:scale-110 transition-transform"></i> Map
                             </a>
-                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/40 action-glow text-xs font-medium text-slate-200 cursor-pointer group">
+                            <button onclick="sharePlatform()" class="flex flex-col items-center justify-center bg-slate-800/90 hover:bg-slate-700 p-3 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 border border-blue-500/30 action-glow text-xs font-medium text-slate-200 cursor-pointer group">
                                 <i class="fa-solid fa-share-nodes text-base mb-1.5 group-hover:scale-110 transition-transform" style="color: ${secondaryColor};"></i> Share
                             </button>
                         </div>
@@ -271,10 +271,10 @@
                 if (user.socials && Object.keys(user.socials).length > 0) {
                     html += `
                         <div class="flex justify-center items-center gap-3 pb-2">
-                            ${user.socials.linkedin ? `<a href="${user.socials.linkedin}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900/80 border border-slate-800/80 hover:bg-slate-800 rounded-full text-[#0A66C2] hover:scale-110 transition-all shadow"><i class="fa-brands fa-linkedin-in text-sm"></i></a>` : ''}
-                            ${user.socials.facebook ? `<a href="${user.socials.facebook}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900/80 border border-slate-800/80 hover:bg-slate-800 rounded-full text-[#1877F2] hover:scale-110 transition-all shadow"><i class="fa-brands fa-facebook-f text-sm"></i></a>` : ''}
-                            ${user.socials.instagram ? `<a href="${user.socials.instagram}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900/80 border border-slate-800/80 hover:bg-slate-800 rounded-full text-[#E4405F] hover:scale-110 transition-all shadow"><i class="fa-brands fa-instagram text-sm"></i></a>` : ''}
-                            ${user.socials.tiktok ? `<a href="${user.socials.tiktok}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-900/80 border border-slate-800/80 hover:bg-slate-800 rounded-full text-[#00f2fe] hover:scale-110 transition-all shadow"><i class="fa-brands fa-tiktok text-sm"></i></a>` : ''}
+                            ${user.socials.linkedin ? `<a href="${user.socials.linkedin}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-[#0A66C2]/10 border border-[#0A66C2]/30 hover:bg-[#0A66C2]/20 rounded-full text-[#0A66C2] hover:scale-110 transition-all shadow"><i class="fa-brands fa-linkedin-in text-sm"></i></a>` : ''}
+                            ${user.socials.facebook ? `<a href="${user.socials.facebook}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-[#1877F2]/10 border border-[#1877F2]/30 hover:bg-[#1877F2]/20 rounded-full text-[#1877F2] hover:scale-110 transition-all shadow"><i class="fa-brands fa-facebook-f text-sm"></i></a>` : ''}
+                            ${user.socials.instagram ? `<a href="${user.socials.instagram}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-[#E4405F]/10 border border-[#E4405F]/30 hover:bg-[#E4405F]/20 rounded-full text-[#E4405F] hover:scale-110 transition-all shadow"><i class="fa-brands fa-instagram text-sm"></i></a>` : ''}
+                            ${user.socials.tiktok ? `<a href="${user.socials.tiktok}" target="_blank" class="w-10 h-10 flex items-center justify-center bg-[#00f2fe]/10 border border-[#00f2fe]/30 hover:bg-[#00f2fe]/20 rounded-full text-[#00f2fe] hover:scale-110 transition-all shadow"><i class="fa-brands fa-tiktok text-sm"></i></a>` : ''}
                         </div>
                     `;
                 }
