@@ -121,77 +121,77 @@
     {
       "type": "videos",
       "number": "05",
-      "title": "Property Tours & Homebuyer Insights",
+      "title": "Luxury Real Estate Tours & Walkthroughs",
       "items": [
         {
-          "videoName": "Inside The Solace Terraces: Luxury Home Tour",
+          "videoName": "Stunning $2M Modern Luxury Villa Walkthrough",
           "platform": "YouTube",
           "duration": "05:12",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Take an exclusive walkthrough of our flagship 3-bedroom luxury terrace in Jabi, Abuja."
+          "videoUrl": "https://www.youtube.com/embed/5qap5aO4i9A",
+          "description": "An immersive cinematic tour of an ultra-modern luxury home featuring open-plan living and premium finishes."
         },
         {
-          "videoName": "First-Time Homebuyer's Guide to Abuja Real Estate",
+          "videoName": "Inside a Breathtaking Architectural Masterpiece Mansion",
           "platform": "YouTube",
           "duration": "08:45",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Essential steps, hidden costs, and verification secrets every first-time buyer needs to know."
+          "videoUrl": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+          "description": "Explore high-end architectural design, infinity pools, and state-of-the-art smart home integration."
         },
         {
-          "videoName": "Aura Heights Executive Suite Walkthrough",
+          "videoName": "Luxury Penthouse Tour with Panoramic City Views",
           "platform": "YouTube",
           "duration": "04:30",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Discover high-rise luxury living in the heart of Utako with modern interior styling."
+          "videoUrl": "https://www.youtube.com/embed/tgbNymZ7vqY",
+          "description": "Step inside a high-rise executive penthouse showcasing upscale interior styling and bespoke comfort."
         },
         {
-          "videoName": "Verdant Ville Duplex: Family Living Redefined",
+          "videoName": "Contemporary Family Home & Smart Estate Tour",
           "platform": "YouTube",
           "duration": "06:15",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "A detailed showcase of space, security, and refined finishing in Gwarimpa."
+          "videoUrl": "https://www.youtube.com/embed/kJQP7kiw5Fk",
+          "description": "A detailed walkthrough of a contemporary gated community home designed for modern families."
         },
         {
-          "videoName": "Katampe Extension: Hilltop Living & Investment Potential",
+          "videoName": "Exclusive Hilltop Mansion & Estate Showcase",
           "platform": "YouTube",
           "duration": "07:20",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Why Horizon Crest smart homes offer unmatched capital appreciation in Abuja."
+          "videoUrl": "https://www.youtube.com/embed/9bZkp7q19f0",
+          "description": "Discover grandeur and elegance with this stunning hilltop luxury property walkthrough."
         },
         {
-          "videoName": "Lugbe Starter Villas: Unlocking Affordable Luxury",
+          "videoName": "Affordable Luxury Starter Home Walkthrough",
           "platform": "YouTube",
           "duration": "05:50",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Breaking down flexible payment plans and gated community perks at Emerald Court."
+          "videoUrl": "https://www.youtube.com/embed/JGwWNGJdvx8",
+          "description": "A comprehensive tour of a beautifully finished starter villa tailored for first-time buyers."
         },
         {
-          "videoName": "Understanding Land Titles & C of O in Abuja",
+          "videoName": "Modern Minimalist Luxury Residence Tour",
           "platform": "YouTube",
           "duration": "10:05",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Protect your investment by learning how to verify genuine property documentation."
+          "videoUrl": "https://www.youtube.com/embed/lTRiuFIWV54",
+          "description": "Experience clean lines, natural lighting, and serene luxury living spaces."
         },
         {
-          "videoName": "How to Secure Your First Home with Ease",
+          "videoName": "High-End Duplex Interior & Exterior Showcase",
           "platform": "YouTube",
           "duration": "06:40",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Expert tips on budgeting, mortgage planning, and closing deals seamlessly."
+          "videoUrl": "https://www.youtube.com/embed/2Vv-BfVoq4g",
+          "description": "Detailed look at fully fitted kitchens, spacious living areas, and stamped concrete compounds."
         },
         {
-          "videoName": "Luxury Interior Design Trends for Modern Homes",
+          "videoName": "Luxury Smart Home Technology & Architecture Tour",
           "platform": "YouTube",
           "duration": "04:55",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Transform your new property into an opulent sanctuary with these expert styling tips."
+          "videoUrl": "https://www.youtube.com/embed/YQHsXMglC9A",
+          "description": "Unveiling automated lighting, biometric entry, and top-tier security features in action."
         },
         {
-          "videoName": "Why Abuja is the Ultimate Real Estate Investment Hub",
+          "videoName": "Ultimate Private Estate & Neighborhood Tour",
           "platform": "YouTube",
           "duration": "09:10",
-          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "description": "Macro-economic insights and growth corridors shaping the future of Nigerian real estate."
+          "videoUrl": "https://www.youtube.com/embed/OPf0YbXqDm0",
+          "description": "Take a guided drive through a prestigious gated estate highlighting serenity and upscale security."
         }
       ]
     }
