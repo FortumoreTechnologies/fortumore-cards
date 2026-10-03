@@ -33,14 +33,14 @@
         }
         @keyframes pulse-subtle {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.95; }
+            50% { transform: scale(1.04); opacity: 0.95; }
         }
         @keyframes glow-pulse {
-            0%, 100% { filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.3)); transform: scale(1); }
-            50% { filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.6)); transform: scale(1.06); }
+            0%, 100% { filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 12px rgba(59, 130, 246, 1)); transform: scale(1.15); }
         }
         .verified-glow {
-            animation: glow-pulse 2.5s infinite ease-in-out;
+            animation: glow-pulse 2s infinite ease-in-out;
         }
         @keyframes button-glow {
             0%, 100% { box-shadow: 0 0 3px rgba(59, 130, 246, 0.1), inset 0 0 3px rgba(59, 130, 246, 0.05); }
@@ -51,16 +51,16 @@
         }
         .floating-whatsapp {
             position: fixed;
-            bottom: 16px;
-            right: 16px;
+            bottom: 14px;
+            right: 14px;
             z-index: 50;
             animation: pulse-subtle 3s infinite ease-in-out;
-            box-shadow: 0 6px 20px -4px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 4px 15px -3px rgba(34, 197, 94, 0.35);
             transition: all 0.3s ease;
         }
         .floating-whatsapp:hover {
-            transform: scale(1.06);
-            box-shadow: 0 10px 25px -4px rgba(34, 197, 94, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px -3px rgba(34, 197, 94, 0.55);
         }
     </style>
 </head>
@@ -124,16 +124,16 @@
                 const primaryColor = user.themeColor || '#3b82f6';
                 const secondaryColor = user.secondaryColor || '#6366f1';
 
-                // Render tiny, compact floating WhatsApp widget
+                // Render ultra-minimalist, compact floating WhatsApp widget
                 if (user.whatsapp) {
                     const encodedMsg = encodeURIComponent(`Interesting ${user.name}, am impressed when do we begin?`);
                     whatsappContainer.innerHTML = `
                         <a href="https://wa.me/${user.whatsapp}?text=${encodedMsg}" 
                            target="_blank" 
-                           class="floating-whatsapp flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-full font-medium text-xs backdrop-blur-md border border-emerald-400/30 cursor-pointer shadow-xl">
+                           class="floating-whatsapp flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-full font-medium text-[11px] backdrop-blur-md border border-emerald-400/30 cursor-pointer shadow-lg">
                             <div class="relative flex items-center justify-center">
-                                <span class="absolute w-2.5 h-2.5 bg-white rounded-full animate-ping opacity-75"></span>
-                                <i class="fa-brands fa-whatsapp text-base text-white relative"></i>
+                                <span class="absolute w-2 h-2 bg-white rounded-full animate-ping opacity-75"></span>
+                                <i class="fa-brands fa-whatsapp text-sm text-white relative"></i>
                             </div>
                             <span class="font-medium tracking-tight pr-0.5">Chat</span>
                         </a>
@@ -149,7 +149,7 @@
                         </div>
                         <h1 class="text-2xl font-bold tracking-tight text-white flex items-center justify-center gap-1.5">
                             ${user.name} 
-                            <i class="fa-solid fa-circle-check text-sm verified-glow" style="color: ${primaryColor};" title="Verified Professional"></i>
+                            <i class="fa-solid fa-circle-check text-base verified-glow" style="color: ${primaryColor};" title="Verified Professional"></i>
                         </h1>
                         <p class="font-medium text-sm mt-1" style="color: ${primaryColor};">${user.title} ${user.company ? '• ' + user.company : ''}</p>
                         <p class="text-slate-400 text-xs mt-1 flex items-center justify-center gap-1"><i class="fa-solid fa-location-dot"></i>${user.location}</p>
