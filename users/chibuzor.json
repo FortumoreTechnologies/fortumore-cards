@@ -10,8 +10,8 @@
   "mapUrl": "https://maps.google.com/?q=Abuja,Nigeria",
   "portfolioPdf": "https://example.com/veritas-luxury-portfolio.pdf",
   "image": "images/gabriel.jpg.jpeg",
-  "themeColor": "#090d16",
-  "secondaryColor": "#f59e0b",
+  "themeColor": "#f8f6f0",
+  "secondaryColor": "#b8860b",
   "sections": [
     {
       "type": "about",
@@ -157,41 +157,6 @@
           "duration": "07:20",
           "videoUrl": "https://www.youtube.com/embed/8v5K6Q2M1l0",
           "description": "Discover grandeur and elegance with this stunning hilltop luxury property walkthrough."
-        },
-        {
-          "videoName": "Affordable Luxury Starter Home Walkthrough",
-          "platform": "YouTube",
-          "duration": "05:50",
-          "videoUrl": "https://www.youtube.com/embed/0x1y2z3A4b5",
-          "description": "A comprehensive tour of a beautifully finished starter villa tailored for first-time buyers."
-        },
-        {
-          "videoName": "Modern Minimalist Luxury Residence Tour",
-          "platform": "YouTube",
-          "duration": "10:05",
-          "videoUrl": "https://www.youtube.com/embed/9c8b7a6f5e4",
-          "description": "Experience clean lines, natural lighting, and serene luxury living spaces."
-        },
-        {
-          "videoName": "High-End Duplex Interior & Exterior Showcase",
-          "platform": "YouTube",
-          "duration": "06:40",
-          "videoUrl": "https://www.youtube.com/embed/5d4c3b2a1e0",
-          "description": "Detailed look at fully fitted kitchens, spacious living areas, and stamped concrete compounds."
-        },
-        {
-          "videoName": "Luxury Smart Home Technology Tour",
-          "platform": "YouTube",
-          "duration": "04:55",
-          "videoUrl": "https://www.youtube.com/embed/1a2b3c4d5e6",
-          "description": "Unveiling automated lighting, biometric entry, and top-tier security features in action."
-        },
-        {
-          "videoName": "Ultimate Private Estate & Neighborhood Tour",
-          "platform": "YouTube",
-          "duration": "09:10",
-          "videoUrl": "https://www.youtube.com/embed/6f5e4d3c2b1",
-          "description": "Take a guided drive through a prestigious gated estate highlighting serenity and upscale security."
         }
       ]
     }
